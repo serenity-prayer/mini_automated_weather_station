@@ -1,0 +1,10 @@
+*{
+    color:white;
+}
+.line{
+    padding: 20px;
+    stroke-width: 8px;
+    stroke: white;
+    margin: 20px;
+    background-color: wheat;
+}

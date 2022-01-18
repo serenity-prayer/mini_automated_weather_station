@@ -1,0 +1,35 @@
+.sidebarMenu{
+    flex: 1;
+    background-color: #22577E;
+    color: aliceblue;
+    height: calc(100vh -50px);
+    position: sticky;
+    top: 40px;
+}
+.menu{
+    padding: 20px;
+    color: cornsilk;
+}
+.titles{
+    margin-bottom: 10px;
+}
+.titles{
+    font-size: 20px;
+}
+.title_list{
+    padding: 10px;
+    list-style: none;
+    align-items: center;
+}
+.list_item{
+    padding: 7px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.list_item:hover{
+    background-color: #5584AC;
+}
+ 
