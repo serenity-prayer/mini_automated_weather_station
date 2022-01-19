@@ -1,4 +1,6 @@
 *{
+    margin: 0;
+    padding: 0;
     color:white;
 }
 .line{
@@ -7,4 +9,7 @@
     stroke: white;
     margin: 20px;
     background-color: wheat;
+}
+.bgground{
+    background-color: #5584AC;
 }

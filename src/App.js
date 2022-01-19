@@ -8,7 +8,7 @@ const App = () =>{
         <div className='app'>
             <TopnavBar/>
             
-            <div className='container'>
+            <div className='containerh'>
                 <SideMenu/>
                 <div className="others_container">
                     <Home/>
