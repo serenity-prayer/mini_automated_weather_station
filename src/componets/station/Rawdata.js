@@ -1,36 +1,27 @@
 import React from 'react'
-import './rawdata.css';
 
 function Rawdata() {
     return (
-        <div className="raw_data">
-            <div className='raw_item'>
-                <span className='temp'>Temperature</span>
-                <div className="raw">
-                    <span className='raw_value'>25 C</span>
-                    <p>Room Temperature</p>
-
+        <div className="card-group shadow-sm p-3 mb-2 bg-white rounded">
+            <div className="card">
+                <div className="card-body">
+                    <h1 className="card-title btn btn-primary  d-flex justify-content-center">24</h1>
+                    <p className="card-text text-center justify-content-center">Normal Temperature.</p>
+                       
                 </div>
             </div>
-
-            <div className='raw_item'>
-                <span className='temp'>Humidity</span>
-                <div className="raw">
-                    <span className='raw_value'>200</span>
-                    <p>Low Humidity</p>
-
+            <div className="card">
+                <div className="card-body">
+                    <h1 className="card-title card-title btn btn-primary  d-flex justify-content-center">345</h1>
+                    <p className="card-text text-center justify-content-center">High Humidity</p>
                 </div>
             </div>
-
-            <div className='raw_item'>
-                <span className='temp'>Rain Fall</span>
-                <div className="raw">
-                    <span className='raw_value'>1024</span>
-                    <p>No rain </p>
-
+            <div className="card">
+                <div className="card-body ">
+                    <h1 className="card-title card-title btn btn-primary  d-flex justify-content-center">45%</h1>
+                    <p className="card-text text-center justify-content-center">It is rain</p>
                 </div>
             </div>
-            
         </div>
     )
 }

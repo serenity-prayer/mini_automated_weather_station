@@ -3,8 +3,9 @@
     background-color: #22577E;
     color: aliceblue;
     height: calc(100vh -50px);
+    width: min-content;
     position: sticky;
-    top: 40px;
+
 }
 .menu{
     padding: 20px;

@@ -1,9 +1,11 @@
 import React from 'react'
 import './SideMenu.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Card } from 'react-bootstrap';
 
 function SideMenu() {
     return (
-        <div className='sidebarMenu'>
+        <Card className="position-sticky sidebarMenu">
             <div className="menu">
                 <div className="titles">
                     <h3 className="title">Weather Data</h3>
@@ -13,7 +15,7 @@ function SideMenu() {
                     </ul>
                 </div>
             </div>
-        </div>
+        </Card>
     )
 }
 
