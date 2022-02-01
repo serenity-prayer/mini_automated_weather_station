@@ -11,9 +11,9 @@ const App = () =>{
             <TopnavBar className="position-sticky"/>
             
             <div className='containerh'>
-                <SideMenu/>
+               
                 <div className="others_container">
-                    <Home/>
+                    {/* <Home/> */}
                 </div>
             </div>
            
