@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TopnavBar from './componets/topbar/TopnavBar';
 import SideMenu from './componets/sidemenu/SideMenu';
 import Home from './componets/pages/Home';
+import OpenWeather from './componets/openweather/OpenWeather';
+
 
 const App = () =>{
     return(
@@ -17,6 +19,7 @@ const App = () =>{
                 </div>
             </div>
            
+           <OpenWeather/>
         </div>
     )
 }
