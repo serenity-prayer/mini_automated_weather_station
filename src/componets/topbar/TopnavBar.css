@@ -12,7 +12,12 @@
     justify-content: space-evenly;
     display: flex;
 }
-.bartop{
+.background{
     background-color: #5584AC;
     color: aliceblue;
+}
+.heading{
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
 }

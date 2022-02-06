@@ -1,4 +1,5 @@
-import * as React from 'react';
+import * as React from "react";
+import {Link } from "react-router-dom";
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -15,6 +16,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
+import Button from '@mui/material/Button';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import Homecharts from '../homecharts/Homecharts';
@@ -23,6 +25,8 @@ import Rawdata from '../station/Rawdata';
 import Tempanaly from '../analytics/temperature/Tempanaly';
 import Barchart from '../charts/Barchart';
 import Home from '../pages/Home';
+import './TopnavBar.css';
+import OpenWeather from '../openweather/OpenWeather';
 
 
 const drawerWidth = 240;
@@ -98,7 +102,7 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" className="heading">
             MINI AUTOMATED WEATHER STATION
           </Typography>
         </Toolbar>
@@ -122,16 +126,24 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          
-          {['HOME', 'ANALYTICS'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+        <List className="">
+
+            <ListItem>
+              <Button href="/openweather" variant="" className="text-dark">
+                Home
+              </Button>
             </ListItem>
-          ))}
+            <ListItem>
+              <Button href="/openweather" variant="" className="text-dark">
+                Open Weather
+              </Button>
+            </ListItem>
+            <ListItem>
+              <Button href="/openweather" variant="" className="text-dark">
+                analytics
+              </Button>
+            </ListItem>
+         
         </List>
       </Drawer>
       <Main open={open}>
@@ -139,6 +151,7 @@ export default function PersistentDrawerLeft() {
           <Rawdata />
           <Homecharts />
           <Home/>
+         
       </Main>
     </Box>
   );

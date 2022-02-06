@@ -18,8 +18,6 @@ const App = () =>{
                     {/* <Home/> */}
                 </div>
             </div>
-           
-           <OpenWeather/>
         </div>
     )
 }

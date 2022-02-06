@@ -27,9 +27,9 @@ function OpenWeather(){
 
     return(
         <div>
-            {/* {(typeof data.main !='undefined')? (<OpenData weatherdata={data}/>):(<div className="card">
+            {(typeof data.main !='undefined')? (<OpenData weatherdata={data}/>):(<div className="card">
                 <code className="text-center text-danger">Oops! Unstable Network</code>
-            </div>)} */}
+            </div>)}
             
         </div>
     );

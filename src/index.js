@@ -1,5 +1,19 @@
-import React  from  'react';
-import ReactDom from 'react-dom';
+import { render } from "react-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 import App from './App';
+import OpenWeather from './componets/openweather/OpenWeather';
 
-ReactDom.render(<App/>, document.getElementById('root'));                                                                                           
+const rootElement = document.getElementById("root");
+render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="openweather" element={<OpenWeather/>} />
+    </Routes>
+  </BrowserRouter>,
+  rootElement
+);
