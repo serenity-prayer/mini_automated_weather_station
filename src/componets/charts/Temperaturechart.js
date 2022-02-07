@@ -53,11 +53,13 @@ function Temperaturechart() {
             <div className='graphs'>
                 <ResponsiveContainer width="100%" aspect ={4/1}>
                     <LineChart data = {data}>
-                        <XAxis dataKey="name" stroke ="#ffff"/>
-                        <YAxis dataKey={data.temp} stroke ="#ffff"/>
-                        <Line type="monotone" dataKey="temp" stroke ="#ffff" />
+                        <XAxis dataKey="name" stroke ="#22577E"/>
+                        <YAxis dataKey={data.temp} stroke ="#22577E"/>
+                        <Line type="monotone" dataKey="temp" stroke ="#F76E11" />
+                        <Line type="monotone" dataKey="hum" stroke ="#22577E" />
+                        <Line type="monotone" dataKey="rain" stroke ="#22577E" />
                         <Tooltip/>
-                        <CartesianGrid dataKey={data.temp} stroke ="#22577E"/>
+                        <CartesianGrid dataKey={data.temp} />
                     </LineChart>
                 </ResponsiveContainer>
 
