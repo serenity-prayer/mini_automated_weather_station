@@ -1,8 +1,6 @@
 import React from 'react';
 
-function OpenCharts (){
-    return(
-        <></>
-    )
+const OpenCharts= ({data})=>{
+    
 }
 export default OpenCharts;

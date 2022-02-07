@@ -11,8 +11,8 @@ const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="openweather" element={<OpenWeather/>} />
+      <Route path="/" element={<App />}/>
+      <Route path="openweather" element={<OpenWeather/>}/>
     </Routes>
   </BrowserRouter>,
   rootElement
