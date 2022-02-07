@@ -12,14 +12,14 @@ function Rawdata() {
             </div>
             <div className="card m-1">
                 <div className="card-body">
-                    <h1 className="card-title card-title btn btn-primary  d-flex justify-content-center">345</h1>
-                    <p className="card-text text-center justify-content-center">High Humidity</p>
+                    <h1 className="card-title card-title btn btn-primary  d-flex justify-content-center">45%</h1>
+                    <p className="card-text text-center justify-content-center">It is Raining</p>
                 </div>
             </div>
             <div className="card">
                 <div className="card-body ">
-                    <h1 className="card-title card-title btn btn-primary  d-flex justify-content-center">45%</h1>
-                    <p className="card-text text-center justify-content-center">It is rain</p>
+                    <h1 className="card-title card-title btn btn-primary  d-flex justify-content-center">345</h1>
+                    <p className="card-text text-center justify-content-center">High Humidity</p>
                 </div>
             </div>
         </div>

@@ -51,7 +51,7 @@ function Home(){
     return (
         <div>
            <div className='container p-2 bg-white trans_graph'>
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="110%" height="90%">
                   <AreaChart 
                       width ={500}
                       height={500} 
@@ -67,9 +67,9 @@ function Home(){
                        <YAxis />
                         <Tooltip/>
                               
-                             <Area type="monotone" dataKey="temp" stackId="1" stroke="#8884d8" fill="#F76E11" />
-                             <Area type="monotone" dataKey="hum" stackId="1" stroke="#82ca9d" fill="#344CB7" />
-                              <Area type="monotone" dataKey="rain" stackId="1" stroke="#ffc658" fill="#2A1157" />
+                             <Area type="monotone" dataKey="temp" stackId="1" stroke="#FF8E00" fill="#FF8E00" />
+                             <Area type="monotone" dataKey="hum" stackId="1" stroke="#8A39E1" fill="#8A39E1" />
+                              <Area type="monotone" dataKey="rain" stackId="1" stroke="#54BAB9" fill="#54BAB9" />
                           
                               
                            
