@@ -16,13 +16,13 @@ function OpenWeather(){
 
     //pushing data to firebase database
     // Push Function
-    const Push = () => {
-        database.ref("WeatherData").set({
+    const push = () => {
+        database.collection("WeatherData").add({
         temp : temp,
         wind : wind,
         hum  : hum,
         press: pressure
-        }).catch(alert);
+        });
     }
 
     useEffect(() => {
@@ -35,14 +35,17 @@ function OpenWeather(){
         await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.json())
             .then(result => {
-                setData(result);
                 setTemp(result.main.temp);
                 setHum(result.main.humidity);
                 setWind(result.wind.speed);
-                setPress(result.main.pressure)
+                setPress(result.main.pressure);
+                push();
+                setData(result);
+                
             });
         }
         fetchData();
+        
     },[lat,long])
 
 
