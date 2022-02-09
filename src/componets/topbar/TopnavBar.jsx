@@ -1,5 +1,4 @@
 import * as React from "react";
-import {Link } from "react-router-dom";
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -14,17 +13,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import Homecharts from '../homecharts/Homecharts';
-import Temperaturechart from '../charts/Temperaturechart';
 import Rawdata from '../station/Rawdata';
-import Tempanaly from '../analytics/temperature/Tempanaly';
-import Barchart from '../charts/Barchart';
 import Home from '../pages/Home';
 import './TopnavBar.css';
-import OpenWeather from '../openweather/OpenWeather';
 
 
 const drawerWidth = 240;
@@ -127,7 +120,7 @@ export default function PersistentDrawerLeft() {
         <List className="">
 
             <ListItem>
-              <Button href="/openweather" variant="" className="text-dark">
+              <Button href="/" variant="" className="text-dark">
                 Home
               </Button>
             </ListItem>

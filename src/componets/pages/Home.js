@@ -50,8 +50,8 @@ const data = [
 function Home(){
     return (
         <div>
-           <div className='container p-2 bg-white trans_graph'>
-              <ResponsiveContainer width="110%" height="90%">
+           <div className='bg-white trans_graph'>
+              <ResponsiveContainer width="100%" height="90%">
                   <AreaChart 
                       width ={500}
                       height={500} 
@@ -65,15 +65,11 @@ function Home(){
                        <CartesianGrid strokeDasharray="3 3" />
                        <XAxis dataKey="name" />
                        <YAxis />
-                        <Tooltip/>
-                              
+                        <Tooltip/>   
                              <Area type="monotone" dataKey="temp" stackId="1" stroke="#FF8E00" fill="#FF8E00" />
                              <Area type="monotone" dataKey="hum" stackId="1" stroke="#8A39E1" fill="#8A39E1" />
                               <Area type="monotone" dataKey="rain" stackId="1" stroke="#54BAB9" fill="#54BAB9" />
-                          
-                              
-                           
-                     
+                        
                   </AreaChart>
               </ResponsiveContainer>
             </div>
