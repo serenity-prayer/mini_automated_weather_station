@@ -19,3 +19,30 @@
     /* display: flex; */
     align-items: center;
 }
+.paper {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    background-image: linear-gradient(rgb(233, 141, 4), skyblue);
+    margin-top: 100px;
+    padding-top: 30px;
+    text-align: center;
+    color: white !important;
+    text-shadow: 2px 2px 2px black;
+    box-shadow: 2px 2px 12px 2px black !important;
+  }
+  .fontcss {
+    font-family: sans-serif;
+    font-size: 30px;
+  }
+  .elementcenter {
+    display: flex;
+    justify-content: space-around;
+  }
+  .imgcss {
+    background-color: lightblue;
+    border-radius: 50%;
+    box-shadow: 2px 2px 13px 2px white;
+  }
+  
+  

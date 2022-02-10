@@ -75,7 +75,7 @@ function Homecharts(){
         <div className="card-body">
           <h5 className="card-title d-flex justify-content-center">Rainfall</h5>
           <p className="card-text">
-            <ResponsiveContainer width="90%" aspect ={4/1}>
+            <ResponsiveContainer width="100%" height="5" aspect ={4/1}>
                     <AreaChart data = {data}>
                         <XAxis dataKey="rain" stroke ="#54BAB9"/>
                         <Area type="monotone" dataKey="rain" stackId="1" stroke="#54BAB9" fill="#54BAB9" />
