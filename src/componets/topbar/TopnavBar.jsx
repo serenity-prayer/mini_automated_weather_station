@@ -19,7 +19,6 @@ import Rawdata from '../station/Rawdata';
 import Home from '../pages/Home';
 import './TopnavBar.css';
 
-
 const drawerWidth = 240;
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
@@ -93,9 +92,10 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div" className="heading">
+          <Typography variant="h6" align="center" noWrap component="div" className="heading">
             MINI AUTOMATED WEATHER STATION
           </Typography>
+        
         </Toolbar>
       </AppBar>
       <Drawer
@@ -130,7 +130,7 @@ export default function PersistentDrawerLeft() {
               </Button>
             </ListItem>
             <ListItem>
-              <Button href="/openweather" variant="" className="text-dark">
+              <Button href="/analytics" variant="" className="text-dark">
                 analytics
               </Button>
             </ListItem>
