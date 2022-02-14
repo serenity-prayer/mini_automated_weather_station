@@ -18,6 +18,8 @@ import Button from '@mui/material/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 import moment from 'moment';
 import Charts from './Charts'
+import Datacharts from "./Datacharts";
+import NavText from "./NavText";
 
 
 const drawerWidth = 240;
@@ -67,7 +69,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-function AnalyCharts({weatherdata}) {
+function AnalyCharts() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -92,10 +94,8 @@ function AnalyCharts({weatherdata}) {
             sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
             <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div"  align="center" className="heading">
-            MINI AUTOMATED WEATHER STATION
-          </Typography>
+            </IconButton>
+            <NavText position="center"/>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -141,9 +141,9 @@ function AnalyCharts({weatherdata}) {
         <DrawerHeader />
           
         <div className=" m-1 card">
+            <Datacharts/>
             <h5 className="card-header text-primary text-center">Real Time Charts</h5>
            <Charts/>
-            
         </div>
       </Main>
     </Box>
