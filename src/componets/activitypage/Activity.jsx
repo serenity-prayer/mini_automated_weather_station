@@ -17,11 +17,7 @@ import ListItem from '@mui/material/ListItem';
 import Button from '@mui/material/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 import moment from 'moment';
-import Charts from './Charts'
-import Datacharts from "./Datacharts";
-import NavText from "./NavText";
-import FooterChart from "../footerchart/FooterChart";
-
+import ActivityChild from "./actiheader/ActivityChild";
 
 const drawerWidth = 240;
 
@@ -70,7 +66,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-function AnalyCharts() {
+function Activity() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -96,7 +92,9 @@ function AnalyCharts() {
           >
             <MenuIcon />
             </IconButton>
-            <NavText position="center"/>
+           <Typography>
+              MINI AUTOMATED WEATHER STATION 
+           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -142,14 +140,11 @@ function AnalyCharts() {
         <DrawerHeader />
           
         <div className=" m-1 card">
-            <Datacharts/>
-            <h5 className="card-header text-primary text-center">Real Time Charts</h5>
-            <Charts/>
-            <FooterChart/>
+            <ActivityChild/>
         </div>
       </Main>
     </Box>
   );
 }
 
-export default AnalyCharts;
+export default Activity;

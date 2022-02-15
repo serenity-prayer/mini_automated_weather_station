@@ -1,7 +1,7 @@
 import React  from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-import './Home.css'
+import './FooterChart.css'
 const data = [
  {
     name: 'sunday',
@@ -47,7 +47,7 @@ const data = [
   },
   ];
 
-function Home(){
+function FooterChart(){
     return (
         <div>
            <div className='bg-white trans_graph'>
@@ -76,4 +76,4 @@ function Home(){
         </div>
     )
     }
-    export default Home;
+    export default FooterChart;

@@ -129,8 +129,8 @@ export default function OpenData({weatherdata}) {
               </Button>
             </ListItem>
             <ListItem>
-              <Button href="/analytics" variant="" className="text-dark">
-                analytics
+              <Button href="/activity" variant="" className="text-dark">
+                Activities
               </Button>
             </ListItem>
          
