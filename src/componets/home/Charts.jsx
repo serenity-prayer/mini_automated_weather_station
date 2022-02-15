@@ -30,7 +30,7 @@ function Charts() {
                       sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
               </div>
               <div className="card border-primary m-3">
-                  <Iframe url="https://thingspeak.com/channels/1635256/charts/3?api_key=K1BT6Y77BEFGSQSB/3?bgcolor=%2E3638&color=%000000&dynamic=true&results=60&title=Rainsensor&type=spline&xaxis=time&yaxis=val"
+                  <Iframe url="https://thingspeak.com/channels/1635256/charts/3?api_key=K1BT6Y77BEFGSQSB?bgcolor=%2E3638&color=%000000&dynamic=true&results=60&title=Rainsensor&type=spline&xaxis=time&yaxis=val"
                       width="450"
                       height="260"
                       id="myId"

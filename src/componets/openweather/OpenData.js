@@ -148,21 +148,21 @@ export default function OpenData({weatherdata}) {
                 </div>
                 <div className='mt-1 card-group'>
                     <div className='card m-1'>
-                        <h5 className='card-title btn btn-primary  d-flex justify-content-center '>Temperature</h5>
+                        <h5 className='card-title  d-flex justify-content-center '>Temperature</h5>
                         <h4 className='card-text text-center justify-content-center'>{weatherdata.main.temp} <code><sup>0</sup>C</code></h4>
                     </div>
                     <div className='card m-1'>
-                        <h5 className='card-title btn btn-primary  d-flex justify-content-center'>Humidity</h5>
+                        <h5 className='card-title  d-flex justify-content-center'>Humidity</h5>
                         <h4 className='card-text text-center justify-content-center'>{weatherdata.main.humidity}<code>%</code></h4>
                     </div>
                 </div>
                 <di className=" mt-2 card-group">
                   <div className='card m-1'>
-                          <h5 className='card-title btn btn-primary  d-flex justify-content-center'>Pressure</h5>
+                          <h5 className='card-title  d-flex justify-content-center'>Pressure</h5>
                           <h4 className='card-text text-center justify-content-center'>{weatherdata.main.pressure}<code>hPa</code></h4>
                       </div>
                       <div className='card m-1'>
-                          <h5 className='card-title btn btn-primary  d-flex justify-content-center'>Wind</h5>
+                          <h5 className='card-title  d-flex justify-content-center'>Wind</h5>
                           <h4 className='card-text text-center justify-content-center'>{weatherdata.wind.speed}<code>Km/hr</code></h4>
                     </div>
                 </di>

@@ -9,8 +9,8 @@ function ActivityChild(){
                 <h4 className='m-1 row-header text-center text-primary'>Suggested Farming Activities</h4>
                 <div className="">
                   <div className='card-group'>
-                        <div className="card">
-                            <img className= "card-img-top" src="https://live.staticflickr.com/4145/5057153772_af8d9b0093_b.jpg" alt="Card image cap"/>
+                        <div className="card m-3">
+                            <img className= "card-img-top" src="https://www.greenpeace.org/static/planet4-africa-stateless/2020/03/b4ee3071-samuel-wathome-at-his-farm-scaled.jpg" alt="Card image cap"/>
                             <div className="card-body">
                                 <h5 className="card-title">Weeding Your Crops</h5>
 
@@ -19,16 +19,16 @@ function ActivityChild(){
                             </div>
                             {/*  */}
                         </div>
-                        <div className="card">
-                            <img className= "card-img-top" src="https://th.bing.com/th/id/R.73f96fafef3318d3c35487f4eac86495?rik=%2bR3YWzlcB0S8Iw&riu=http%3a%2f%2fwww.heritageaflame.org%2fwp-content%2fuploads%2f2013%2f11%2fmaize.jpg&ehk=blDZ2MmAbi3V34sF%2bkfVNRFLTmK6Mf9Km5rcWDeyI4s%3d&risl=&pid=ImgRaw&r=0" alt="Card image cap"/>
+                        <div className="card m-3">
+                            <img className= "card-img-top" src="https://th.bing.com/th/id/R.c29d8ae4fbf8d19022a96ee526ab1871?rik=zy%2bCcQTNCLtEmg&pid=ImgRaw&r=0" alt="Card image cap"/>
                             <div className="card-body">
                                 <h5 className="card-title">Planting</h5>
                                 <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
                             
                             </div>
                         </div>
-                        <div className="card">
-                            <img className='card-img-top' src='https://agricsite.com/wp-content/uploads/2020/06/Maize-Harvesting.jpg' alt='image'/>
+                        <div className="card m-3">
+                            <img className='card-img-top' src='https://www.aljazeera.com/mritems/Images/2009/7/3/2009737125114954_8.jpg' alt='image'/>
                             <div className="card-body">
                                 <h5 className="card-title">Haversting</h5>
                                 <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
