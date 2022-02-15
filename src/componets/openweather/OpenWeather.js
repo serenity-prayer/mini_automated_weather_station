@@ -11,13 +11,6 @@ function OpenWeather(){
     const [data, setData] = useState([]);
     const [forecast, setFocast] = useState();
 
-    // const [temp , setTemp] = useState();
-    // const [hum , setHum] = useState();
-    // const [wind , setWind] = useState();
-    // const [pressure , setPress] = useState();
-
-
-
     useEffect(() => {
         const fetchData = async () => {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -25,32 +18,23 @@ function OpenWeather(){
             setLong(position.coords.longitude);
         });
 
-        // https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&&appid=27fa978b9ed3a3e7ce8137be2d78cbac
+        //weather forecast
         await fetch(`${process.env.REACT_APP_API_URLw}?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-        .then(res => res.json())
-        .then(result => {
-            // setTemp(result.main.temp);
-            // setHum(result.main.humidity);
-            // setWind(result.wind.speed);
-            // setPress(result.main.pressure);
-       
-            setFocast(result.current);
-            console.log(forecast);
-        })
-        .catch(err =>{
-            console.log(err);
-        });
+            .then(res => res.json())
+            .then(result => {
+                //set data to the object
+                setFocast(result);
+                console.log(result);
+            })
+            .catch(err =>{
+                console.log(err);
+            });
 
         await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.json())
             .then(result => {
-                // setTemp(result.main.temp);
-                // setHum(result.main.humidity);
-                // setWind(result.wind.speed);
-                // setPress(result.main.pressure);
-           
                 setData(result);
-                // console.log(result);
+                
             })
             .catch(err =>{
                 console.log(err);
@@ -64,10 +48,9 @@ function OpenWeather(){
 
     return(
         <div>
-            {/* {(typeof data.main !='undefined')? (<OpenData weatherdata={data}/>):(<div className="card">
+            {(typeof data.main !='undefined')? (<OpenData weatherdata={data}/>):(<div className="card">
                 <Onload/>
-            </div>)} */}
-           {/* <h1>{forecast.current.pressure}</h1> */}
+            </div>)} 
             
         </div>
     );

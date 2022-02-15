@@ -5,10 +5,5 @@
     
 }
 .containerh{
-    display: flex;
-    margin-top:10px ;
     background-color: #5584AC;
-}
-.others_container{
-    flex: 5;
 }
