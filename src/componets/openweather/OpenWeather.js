@@ -136,79 +136,104 @@ function OpenWeather(){
            <div className="card-group">
 
                 <div className="card">
-                    <h6 className="card-header card-titled">{moment().format('dddd')},{moment(new Date(firstdate * 1000)).format('LL')}</h6>
+                    <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(firstdate * 1000)).format('dddd')} |  {moment(new Date(firstdate * 1000)).format('LL')}</p>
                     <div className="card-body">
-                        
-                        <h1>{firstdayTemp}</h1>
-                        <h1>{fisthum}</h1>
-                        <h2>{firstdaydesc}</h2>
+                        <span><i className="header">Temperature</i>
+                        <p className="val">{firstdayTemp}<sup>&deg;</sup>C </p></span>
+                        <span>
+                            <p className="val">{fisthum}% </p>
+                        </span>
+                        <p className="titlep">{firstdaydesc}</p>
                     </div>
 
                 </div>
 
                 <div className="card">
-                    <h6 className="card-header card-titled">{seconddate}</h6>
+                    <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(seconddate * 1000)).format('dddd')} |  {moment(new Date(seconddate * 1000)).format('LL')}</p>
                     <div className="card-body">
-                        <h1>{seconddayTemp}</h1>
-                        <h1>{secondhum}</h1>
-                        <h2>{seconddaydesc}</h2>
+                         <span>
+                            <i className="header">Temperature</i>
+                            <p className="val">{seconddayTemp}<sup>&deg;</sup>C </p>
+                        </span>
+                        <p className="val">{secondhum}%</p>
+                        <p className="titlep">{seconddaydesc}</p>
                     </div>
 
                 </div>
 
                 <div className="card">
-                    <h6 className="card-header card-titled">{thirddate}</h6>
+                    <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(thirddate * 1000)).format('dddd')} |  {moment(new Date(thirddate * 1000)).format('LL')}</p>
                     <div className="card-body">
-                        <h1>{thirddayTemp}</h1>
-                        <h1>{thirdhum}</h1>
-                        <h2>{thirddaydesc}</h2>
+                        <span>
+                            <i className="header">Temperature</i>
+                            <p className="val">{thirddayTemp}<sup>&deg;</sup>C </p>
+                        </span>
+                        <p className="val">{thirdhum}%</p>
+                        <p className="titlep">{thirddaydesc}</p>
                     </div>
 
                 </div>
 
                 <div className="card">
-                    <h6 className="card-header card-titled">{fourthdate}</h6>
+                    <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(fourthdate * 1000)).format('dddd')} |  {moment(new Date(fourthdate * 1000)).format('LL')}</p>
                     <div className="card-body">
-                        <h1>{fourthdayTemp}</h1>
-                        <h1>{fourthhum}</h1>
-                        <h2>{fourthdaydesc}</h2>
+                        <span>
+                            <i className="header">Temperature</i>
+                            <p className="val">{fourthdayTemp}<sup>&deg;</sup>C </p>
+                        </span>
+                        <p className="val">{fourthhum}</p>
+                        <p className="titlep">{fourthdaydesc}</p>
                     </div>
                 </div>
            </div>
+
            <div className="card-group">
            <div className="card">
-                    <h6 className="card-header card-titled">{fifthdate}</h6>
+                    <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(fifthdate * 1000)).format('dddd')} |  {moment(new Date(fifthdate * 1000)).format('LL')}</p>
+                    <p className="card-header card-titled">{fifthdate}</p>
                     <div className="card-body">
-                        <h1>{fifthdayTemp}</h1>
-                        <h1>{fifthhum}</h1>
-                        <h2>{firstdaydesc}</h2>
+                        <span>
+                            <i className="header">Temperature</i>
+                            <p className="val">{fifthdayTemp}<sup>&deg;</sup>C </p>
+                        </span>
+                        <p className="val">{fifthhum}%</p>
+                        <p className="titlep">{firstdaydesc}</p>
                     </div>
                 </div>
 
                 <div className="card">
-                    <h6 className="card-header card-titled">{sixthdate}</h6>
+                    <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(sixthdate * 1000)).format('dddd')} |  {moment(new Date(sixthdate * 1000)).format('LL')}</p>
                     <div className="card-body">
-                        <h1>{sixthdayTemp}</h1>
-                        <h1>{sixthhum}</h1>
-                        <h2>{sixthdaydesc}</h2>
+                        <span>
+                            <i className="header">Temperature</i>
+                            <p className="val">{sixthdayTemp}<sup>&deg;</sup>C </p>
+                        </span>
+                        <p className="val">{sixthhum}% </p>
+                        <p className="titlep">{sixthdaydesc}</p>
                     </div>
                 </div>
 
                 <div className="card">
-                    <h6 className="card-header card-titled">{sevendate}</h6>
+                    <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(sevendate * 1000)).format('dddd')} |  {moment(new Date(sevendate * 1000)).format('LL')}</p>
                     <div className="card-body">
-                        <h1>{sevenTemp}</h1>
-                        <h1>{sevenhum}</h1>
-                        <h2>{sevendaydesc}</h2>
+                        <span>
+                            <i className="header">Temperature</i>
+                            <p className="val">{sevenTemp}<sup>&deg;</sup>C </p>
+                        </span>
+                        <p className="val">{sevenhum}%</p>
+                        <p className="titlep">{sevendaydesc}</p>
                     </div>
                 </div>
 
                 <div className="card">
-                    <h6 className="card-header card-titled">{eightdate}</h6>
+                    <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(eightdate * 1000)).format('dddd')} |  {moment(new Date(eightdate * 1000)).format('LL')}</p>
                     <div className="card-body">
-                        <h1>{eightdayTemp}</h1>
-                        <h1>{eighthum}</h1>
-                        <h2>{eightdaydesc}</h2>
+                        <span>
+                            <i className="header">Temperature</i>
+                            <p className="val">{eightdayTemp}<sup>&deg;</sup>C </p>
+                        </span>
+                        <p  className="val">{eighthum}%</p>
+                        <p className="titlep">{eightdaydesc}</p>
                     </div>
                 </div>
                 

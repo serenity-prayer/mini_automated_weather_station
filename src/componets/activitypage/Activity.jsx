@@ -124,7 +124,7 @@ function Activity() {
               </Button>
             </ListItem>
             <ListItem>
-              <Button href="/openweather" variant="" className="text-dark">
+              <Button href="/opendata" variant="" className="text-dark">
                 Open Weather
               </Button>
             </ListItem>
