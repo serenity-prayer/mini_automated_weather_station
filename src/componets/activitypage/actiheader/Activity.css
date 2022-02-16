@@ -1,0 +1,20 @@
+
+.bgground{
+    background-color: #FFB319;
+}
+.trans_graph{
+    height: 14rem;
+    width: 100%;
+    margin-top: 0.8rem;
+}
+
+.cardd{
+    padding: 1.5em .5em .5em;
+    border-radius: 2em;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+.card-titled{
+    font-weight: 700;
+    font-size: 1.5em;
+}

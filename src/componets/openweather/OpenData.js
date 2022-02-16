@@ -16,8 +16,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import Button from '@mui/material/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
-import moment from 'moment';
-
+import OpenWeather from './OpenWeather';
+import moment from "moment";
 
 const drawerWidth = 240;
 
@@ -139,35 +139,9 @@ export default function OpenData({weatherdata}) {
       <Main open={open}>
         <DrawerHeader />
           
-        <div className="container mt-0 card">
-            <h2 className="containercard-header  text-center">{weatherdata.name} </h2>
-            <div className='card-body'>
-                <div className=" mt-0  card-header">
-                  <p className="day">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
-                  <p className="description">{weatherdata.weather[0].main}</p>
-                </div>
-                <div className='mt-1 card-group'>
-                    <div className='card m-1'>
-                        <h5 className='card-title  d-flex justify-content-center '>Temperature</h5>
-                        <h4 className='card-text text-center justify-content-center'>{weatherdata.main.temp} <code><sup>0</sup>C</code></h4>
-                    </div>
-                    <div className='card m-1'>
-                        <h5 className='card-title  d-flex justify-content-center'>Humidity</h5>
-                        <h4 className='card-text text-center justify-content-center'>{weatherdata.main.humidity}<code>%</code></h4>
-                    </div>
-                </div>
-                <di className=" mt-2 card-group">
-                  <div className='card m-1'>
-                          <h5 className='card-title  d-flex justify-content-center'>Pressure</h5>
-                          <h4 className='card-text text-center justify-content-center'>{weatherdata.main.pressure}<code>hPa</code></h4>
-                      </div>
-                      <div className='card m-1'>
-                          <h5 className='card-title  d-flex justify-content-center'>Wind</h5>
-                          <h4 className='card-text text-center justify-content-center'>{weatherdata.wind.speed}<code>Km/hr</code></h4>
-                    </div>
-                </di>
-            </div>
-            
+        <div className="mt-0 card ">
+           <p className="day">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
+           <OpenWeather/> 
         </div>
       </Main>
     </Box>
