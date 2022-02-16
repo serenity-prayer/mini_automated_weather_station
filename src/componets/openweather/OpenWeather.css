@@ -3,7 +3,14 @@
     padding: 1.5em .5em .5em;
     border-radius: 2em;
     text-align: center;
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    /* box-shadow: 0 5px 10px rgba(0,0,0,.2); */
+    padding: 1rem;
+    margin: 1.5rem 4vw;
+    /* border-radius: 1rem; */
+    background-color: rgba(238, 237, 237, 0.22);
+    border-color: rgba(238, 237, 237, 0.22);
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    /* text-align: center */
 }
 .card-titleh{
     font-weight: 700;
@@ -40,15 +47,6 @@
     }
 }
 
-.card {
-    padding: 1rem;
-    margin: 1.5rem 4vw;
-    border-radius: 1rem;
-    background-color: rgba(238, 237, 237, 0.22);
-    border-color: rgba(238, 237, 237, 0.22);
-    box-shadow: 5px 6px 6px 2px #e9ecef;
-    text-align: center
-}
 
 @media(max-width:768px) {
     .card {
