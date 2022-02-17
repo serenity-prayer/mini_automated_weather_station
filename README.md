@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+## For demo open (https://mini-automated-weather-station.herokuapp.com)
 ## Available Scripts
 
 In the project directory, you can run:
