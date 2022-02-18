@@ -7,8 +7,8 @@ function Footer (){
     const date= new Date().getFullYear();
    
     return(
-        <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-primary text-white-50">
-        <div class="container text-center">
+        <footer id="sticky-footer" class="flex-shrink-0 py-4  text-primary-50">
+        <div class="text-center">
           <small>{date} Copyright &copy; Auto-Weather Station</small>
         </div>
       </footer>

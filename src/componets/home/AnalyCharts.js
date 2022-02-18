@@ -21,6 +21,7 @@ import Charts from './Charts'
 import Datacharts from "./Datacharts";
 import NavText from "./NavText";
 import FooterChart from "../footerchart/FooterChart";
+import Footer from "../footer/Footer";
 
 
 const drawerWidth = 240;
@@ -145,7 +146,7 @@ function AnalyCharts() {
             <Datacharts/>
             <h5 className="card-header text-primary text-center">Real Time Charts</h5>
             <Charts/>
-            <FooterChart/>
+            <Footer/>
         </div>
       </Main>
     </Box>
