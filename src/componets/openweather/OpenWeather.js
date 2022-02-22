@@ -190,7 +190,6 @@ function OpenWeather(){
            <div className="card-group">
            <div className="card cardd">
                     <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(fifthdate * 1000)).format('dddd')} |  {moment(new Date(fifthdate * 1000)).format('LL')}</p>
-                    <p className="card-header card-titled">{fifthdate}</p>
                     <div className="card-body">
                         <span>
                             <i className="header">Temperature</i>
