@@ -68,12 +68,14 @@
 }
 
 .val {
-    font-size: 1.6rem;
-    margin-bottom: 1rem
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    
 }
 
 .header {
-    color: #dddddd
+    /* color: #dddddd */
+    font-style: italic;
 }
 
 .col-4 {

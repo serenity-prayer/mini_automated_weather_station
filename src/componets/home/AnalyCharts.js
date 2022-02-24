@@ -128,12 +128,12 @@ function AnalyCharts() {
             </ListItem>
             <ListItem>
               <Button href="/opendata" variant="" className="text-dark">
-                Open Weather
+                Weather Forecast
               </Button>
             </ListItem>
             <ListItem>
               <Button href="/activity" variant="" className="text-dark">
-                Activities
+                Analytics
               </Button>
             </ListItem>
          
