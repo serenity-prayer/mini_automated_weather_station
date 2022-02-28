@@ -10,12 +10,11 @@ function Onload() {
             <div>
                 <Oval             
                     color="#00BFFF" 
-                    height={80} 
-                    width={80} />
+                    height={100} 
+                    width={100} />
                     {/* p-2 */}
             </div>
-            <br/>
-            <p className="mt-3">Loading...</p>
+            <p className="m-3">Loading...</p>
             </div>
        </div>
     )

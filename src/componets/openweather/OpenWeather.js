@@ -9,6 +9,8 @@ function OpenWeather(){
     const [lat, setLat] = useState([]);
     const [long, setLong] = useState([]);
     const [data, setData] = useState();
+    const [weather, setWeather] = useState();
+
     const [firstdayTemp, setFistDayTemp] = useState();
     const [firstdayIcon, setFistDayIcon] = useState();
     const [firstdate, setFristDate] = useState();
@@ -69,7 +71,8 @@ function OpenWeather(){
             .then(res => res.json())
             .then(result => {
                 //set data to the object
-                
+                setWeather(result.current);
+
                 console.log(result);
                 // setData(result.current.temp);
                 setFistDayTemp(result.daily[0].temp.max);
@@ -123,7 +126,6 @@ function OpenWeather(){
 
                 console.log(seconddayTemp);
                 var newDate = moment(new Date(1645088400 * 1000)).format('dddd');
-//                           -----------^^^^^^^------------
                 console.log(newDate);
                 console.log(moment(new Date(1645088400 * 1000)).format('LL'));
             })
@@ -146,156 +148,166 @@ function OpenWeather(){
     },[lat,long])
 
 
-
     return(
         <div>
+            {(typeof weather !='undefined')? 
+                (
+                    <div>
             
-           <div className="card-group">
-
-                <div className="card cardd">
-                    <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(firstdate * 1000)).format('dddd')} |  {moment(new Date(firstdate * 1000)).format('LL')}</p>
-                    <div className="card-body">
-                        <span>
-                            <i className="d-inline p-2 header">Temperature:</i>
-                            <p className="d-inline p-2 val">{firstdayTemp}<sup>&deg;</sup>C </p>
-                        </span>
-                            <div>
-                                <p className="d-inline p-2 header">Humidity: </p>
-                                <p className="d-inline p-2 val">{fisthum}% </p>
-                            </div>
-                      
-                        <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${firstdayIcon}.png`}  alt="weather-icon"/></div>
-                        <p className="titlep">{firstdaydesc}</p>
-                    </div>
-
-                </div>
-
-                <div className="card cardd">
-                    <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(seconddate * 1000)).format('dddd')} |  {moment(new Date(seconddate * 1000)).format('LL')}</p>
-                    <div className="card-body">
-                        <span>
-                            <i className="d-inline p-2 header">Temperature:</i>
-                            <p className="d-inline p-2 val">{seconddayTemp}<sup>&deg;</sup>C </p>
-                        </span>
-                            <div>
-                                <p className="d-inline p-2 header">Humidity: </p>
-                                <p className="d-inline p-2 val">{secondhum}% </p>
-                            </div>
-                      
-                        <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${secondIcon}.png`}  alt="weather-icon"/></div>
-                        <p className="titlep">{seconddaydesc}</p>
-                    </div>
-
-                </div>
-
-                <div className="card cardd">
-                    <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(thirddate * 1000)).format('dddd')} |  {moment(new Date(thirddate * 1000)).format('LL')}</p>
-                    <div className="card-body">
-                        <span>
-                            <i className="d-inline p-2 header">Temperature: </i>
-                            <p className="d-inline p-2 val">{thirddayTemp}<sup>&deg;</sup>C </p>
-                        </span>
-                            <div>
-                                <p className="d-inline p-2 header">Humidity:  </p>
-                                <p className="d-inline p-2 val">{thirdhum}% </p>
-                            </div>
-                      
-                        <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${thirdIcon}.png`}  alt="weather-icon"/></div>
-                        <p className="titlep">{thirddaydesc}</p>
-                    </div>
-
-                </div>
-
-                <div className="card cardd">
-                    <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(fourthdate * 1000)).format('dddd')} |  {moment(new Date(fourthdate * 1000)).format('LL')}</p>
-                    <div className="card-body">
-                        <span>
-                            <i className="d-inline p-2 header">Temperature: </i>
-                            <p className="d-inline p-2 val">{fourthdayTemp}<sup>&deg;</sup>C </p>
-                        </span>
-                            <div>
-                                <p className="d-inline p-2 header">Humidity: </p>
-                                <p className="d-inline p-2 val">{fourthhum}% </p>
-                            </div>
-                      
-                        <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${fourthIcon}.png`}  alt="weather-icon"/></div>
-                        <p className="titlep">{fourthdaydesc}</p>
-                    </div>
-                </div>
-           </div>
-
-           <div className="card-group">
-           <div className="card cardd">
-                    <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(fifthdate * 1000)).format('dddd')} |  {moment(new Date(fifthdate * 1000)).format('LL')}</p>
-                    <div className="card-body">
-                        <span>
-                            <i className="d-inline p-2 header">Temperature: </i>
-                            <p className="d-inline p-2 val">{fifthdayTemp}<sup>&deg;</sup>C </p>
-                        </span>
-                            <div>
-                                <p className="d-inline p-2 header">Humidity: </p>
-                                <p className="d-inline p-2 val">{fifthhum}% </p>
-                            </div>
-                      
-                        <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${fifthIcon}.png`}  alt="weather-icon"/></div>
-                        <p className="titlep">{fifthdaydesc}</p>
-                    </div>
-                </div>
-
-                <div className="card cardd">
-                    <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(sixthdate * 1000)).format('dddd')} |  {moment(new Date(sixthdate * 1000)).format('LL')}</p>
-                    <div className="card-body">
-                        <span>
-                            <i className="d-inline p-2 header">Temperature: </i>
-                            <p className="d-inline p-2 val">{sixthdayTemp}<sup>&deg;</sup>C </p>
-                        </span>
-                            <div>
-                                <p className="d-inline p-2 header">Humidity: </p>
-                                <p className="d-inline p-2 val">{sixthhum}% </p>
-                            </div>
-                      
-                        <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${sixthIcon}.png`}  alt="weather-icon"/></div>
-                        <p className="titlep">{sixthdaydesc}</p>
-                    </div>
-                </div>
-
-                <div className="card cardd">
-                    <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(sevendate * 1000)).format('dddd')} |  {moment(new Date(sevendate * 1000)).format('LL')}</p>
-                    <div className="card-body">
-                        <span>
-                            <i className="d-inline p-2 header">Temperature: </i>
-                            <p className="d-inline p-2 val">{sevenTemp}<sup>&deg;</sup>C </p>
-                        </span>
-                            <div>
-                                <p className="d-inline p-2 header">Humidity: </p>
-                                <p className="d-inline p-2 val">{sevenhum}% </p>
-                            </div>
-                      
-                        <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${sevenIcon}.png`}  alt="weather-icon"/></div>
-                        <p className="titlep">{sevendaydesc}</p>
-                    </div>
-                </div>
-
-                <div className="card cardd">
-                    <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(eightdate * 1000)).format('dddd')} |  {moment(new Date(eightdate * 1000)).format('LL')}</p>
-                    <div className="card-body">
-                        <span>
-                            <i className="d-inline p-2 header">Temperature: </i>
-                            <p className="d-inline p-2 val">{eightdayTemp}<sup>&deg;</sup>C </p>
-                        </span>
-                            <div>
-                                <p className="d-inline p-2 header">Humidity: </p>
-                                <p className="d-inline p-2 val">{eighthum}% </p>
-                            </div>
-                      
-                        <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${eightIcon}.png`}  alt="weather-icon"/></div>
-                        <p className="titlep">{eightdaydesc}</p>
-                    </div>
-                </div>
-                
-           </div>
-           
+                        <div className="card-group">
             
+                            <div className="card cardd">
+                                <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(firstdate * 1000)).format('dddd')} |  {moment(new Date(firstdate * 1000)).format('LL')}</p>
+                                <div className="card-body">
+                                    <span>
+                                        <i className="d-inline p-2 header">Temperature:</i>
+                                        <p className="d-inline p-2 val">{firstdayTemp}<sup>&deg;</sup>C </p>
+                                    </span>
+                                        <div>
+                                            <p className="d-inline p-2 header">Humidity: </p>
+                                            <p className="d-inline p-2 val">{fisthum}% </p>
+                                        </div>
+                                
+                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${firstdayIcon}.png`}  alt="weather-icon"/></div>
+                                    <p className="titlep">{firstdaydesc}</p>
+                                </div>
+            
+                            </div>
+            
+                            <div className="card cardd">
+                                <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(seconddate * 1000)).format('dddd')} |  {moment(new Date(seconddate * 1000)).format('LL')}</p>
+                                <div className="card-body">
+                                    <span>
+                                        <i className="d-inline p-2 header">Temperature:</i>
+                                        <p className="d-inline p-2 val">{seconddayTemp}<sup>&deg;</sup>C </p>
+                                    </span>
+                                        <div>
+                                            <p className="d-inline p-2 header">Humidity: </p>
+                                            <p className="d-inline p-2 val">{secondhum}% </p>
+                                        </div>
+                                
+                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${secondIcon}.png`}  alt="weather-icon"/></div>
+                                    <p className="titlep">{seconddaydesc}</p>
+                                </div>
+            
+                            </div>
+            
+                            <div className="card cardd">
+                                <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(thirddate * 1000)).format('dddd')} |  {moment(new Date(thirddate * 1000)).format('LL')}</p>
+                                <div className="card-body">
+                                    <span>
+                                        <i className="d-inline p-2 header">Temperature: </i>
+                                        <p className="d-inline p-2 val">{thirddayTemp}<sup>&deg;</sup>C </p>
+                                    </span>
+                                        <div>
+                                            <p className="d-inline p-2 header">Humidity:  </p>
+                                            <p className="d-inline p-2 val">{thirdhum}% </p>
+                                        </div>
+                                
+                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${thirdIcon}.png`}  alt="weather-icon"/></div>
+                                    <p className="titlep">{thirddaydesc}</p>
+                                </div>
+            
+                            </div>
+            
+                            <div className="card cardd">
+                                <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(fourthdate * 1000)).format('dddd')} |  {moment(new Date(fourthdate * 1000)).format('LL')}</p>
+                                <div className="card-body">
+                                    <span>
+                                        <i className="d-inline p-2 header">Temperature: </i>
+                                        <p className="d-inline p-2 val">{fourthdayTemp}<sup>&deg;</sup>C </p>
+                                    </span>
+                                        <div>
+                                            <p className="d-inline p-2 header">Humidity: </p>
+                                            <p className="d-inline p-2 val">{fourthhum}% </p>
+                                        </div>
+                                
+                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${fourthIcon}.png`}  alt="weather-icon"/></div>
+                                    <p className="titlep">{fourthdaydesc}</p>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div className="card-group">
+                        <div className="card cardd">
+                                <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(fifthdate * 1000)).format('dddd')} |  {moment(new Date(fifthdate * 1000)).format('LL')}</p>
+                                <div className="card-body">
+                                    <span>
+                                        <i className="d-inline p-2 header">Temperature: </i>
+                                        <p className="d-inline p-2 val">{fifthdayTemp}<sup>&deg;</sup>C </p>
+                                    </span>
+                                        <div>
+                                            <p className="d-inline p-2 header">Humidity: </p>
+                                            <p className="d-inline p-2 val">{fifthhum}% </p>
+                                        </div>
+                                
+                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${fifthIcon}.png`}  alt="weather-icon"/></div>
+                                    <p className="titlep">{fifthdaydesc}</p>
+                                </div>
+                            </div>
+            
+                            <div className="card cardd">
+                                <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(sixthdate * 1000)).format('dddd')} |  {moment(new Date(sixthdate * 1000)).format('LL')}</p>
+                                <div className="card-body">
+                                    <span>
+                                        <i className="d-inline p-2 header">Temperature: </i>
+                                        <p className="d-inline p-2 val">{sixthdayTemp}<sup>&deg;</sup>C </p>
+                                    </span>
+                                        <div>
+                                            <p className="d-inline p-2 header">Humidity: </p>
+                                            <p className="d-inline p-2 val">{sixthhum}% </p>
+                                        </div>
+                                
+                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${sixthIcon}.png`}  alt="weather-icon"/></div>
+                                    <p className="titlep">{sixthdaydesc}</p>
+                                </div>
+                            </div>
+            
+                            <div className="card cardd">
+                                <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(sevendate * 1000)).format('dddd')} |  {moment(new Date(sevendate * 1000)).format('LL')}</p>
+                                <div className="card-body">
+                                    <span>
+                                        <i className="d-inline p-2 header">Temperature: </i>
+                                        <p className="d-inline p-2 val">{sevenTemp}<sup>&deg;</sup>C </p>
+                                    </span>
+                                        <div>
+                                            <p className="d-inline p-2 header">Humidity: </p>
+                                            <p className="d-inline p-2 val">{sevenhum}% </p>
+                                        </div>
+                                
+                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${sevenIcon}.png`}  alt="weather-icon"/></div>
+                                    <p className="titlep">{sevendaydesc}</p>
+                                </div>
+                            </div>
+            
+                            <div className="card cardd">
+                                <p className="card-header card-titled bg-success text-white text-justify text-center">{moment(new Date(eightdate * 1000)).format('dddd')} |  {moment(new Date(eightdate * 1000)).format('LL')}</p>
+                                <div className="card-body">
+                                    <span>
+                                        <i className="d-inline p-2 header">Temperature: </i>
+                                        <p className="d-inline p-2 val">{eightdayTemp}<sup>&deg;</sup>C </p>
+                                    </span>
+                                        <div>
+                                            <p className="d-inline p-2 header">Humidity: </p>
+                                            <p className="d-inline p-2 val">{eighthum}% </p>
+                                        </div>
+                                
+                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${eightIcon}.png`}  alt="weather-icon"/></div>
+                                    <p className="titlep">{eightdaydesc}</p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                ):(
+
+                    <div className="card">
+                        <Onload/>
+                    </div>
+                )
+            }
         </div>
     );
 }
