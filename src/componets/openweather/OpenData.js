@@ -139,7 +139,7 @@ export default function OpenData({weatherdata}) {
       <Main open={open}>
         <DrawerHeader />
           
-        <div className="mt-0 card ">
+        <div className="mt-0 p-5 card ">
            <p className="day text-center">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
            <OpenWeather/> 
         </div>
