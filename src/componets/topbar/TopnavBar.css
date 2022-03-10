@@ -1,7 +1,7 @@
 .topbar{
     width: 100%;
     height: 60px;
-    background-color: #5584AC;
+    background-color: #f0f4f8;
     color: aliceblue;
     position: sticky;
 }
@@ -13,7 +13,7 @@
     display: flex;
 }
 .background{
-    background-color: #5584AC;
+    background-color: #f3f3f3;
     color: aliceblue;
 }
 .heading{

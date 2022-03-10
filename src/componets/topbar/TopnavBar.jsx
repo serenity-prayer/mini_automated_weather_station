@@ -138,11 +138,10 @@ export default function PersistentDrawerLeft() {
         </List>
       </Drawer>
       <Main open={open}>
-        <DrawerHeader />
+          <DrawerHeader />
           <Rawdata />
           <Homecharts />
-          <Home/>
-         
+          <Home />
       </Main>
     </Box>
   );

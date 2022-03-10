@@ -7,7 +7,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -16,11 +15,9 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import Button from '@mui/material/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
-import moment from 'moment';
 import Charts from './Charts'
 import Datacharts from "./Datacharts";
 import NavText from "./NavText";
-import FooterChart from "../footerchart/FooterChart";
 import Footer from "../footer/Footer";
 
 

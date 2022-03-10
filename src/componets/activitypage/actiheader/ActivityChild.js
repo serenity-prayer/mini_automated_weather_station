@@ -1,8 +1,7 @@
 import React from 'react';
-import Carousel from 'react-bootstrap/Carousel'
-import { Moment } from 'moment';
 import './Activity.css';
-
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 function ActivityChild(){
     return(
        <div>
@@ -41,8 +40,29 @@ function ActivityChild(){
                 
                 </div>
             </div>
+
+            <div className="row">
+                <h4 className='m-1 row-header text-center text-primary card-titled'>input your data</h4>
+                <div className="">
+                  <div className='card-group '>
+
+                 <h1>
+                    <TextField id="outlined-basic" label="enter crop" variant="outlined" />
+                    <h1>  </h1>
+                    <TextField id="outlined-basic" label="enter district" variant="outlined" />
+                    <h1>  </h1>
+                    <Button variant="contained" disableElevation>  submit  </Button>
+    
+   
+                 </h1>
+
+                  </div>
+                  </div>
+                  </div>
+            
             <div className='row'>
 
+         
             </div>
        </div>
     )
