@@ -124,13 +124,14 @@ function Activity() {
               </Button>
             </ListItem>
             <ListItem>
-              <Button href="/opendata" variant="" className="text-dark">
-                Weather Forecast
+              <Button href="/activity" variant="" className="text-dark">
+                Analytics
               </Button>
             </ListItem>
             <ListItem>
-              <Button href="/activity" variant="" className="text-dark">
-                Analytics
+              
+              <Button href="/opendata" variant="" className="text-dark">
+                Weather Forecast
               </Button>
             </ListItem>
          

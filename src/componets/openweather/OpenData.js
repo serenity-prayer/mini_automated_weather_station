@@ -124,25 +124,22 @@ export default function OpenData({weatherdata}) {
               </Button>
             </ListItem>
             <ListItem>
-              <Button href="/opendata" variant="" className="text-dark">
-                Weather Forecast
-              </Button>
-            </ListItem>
-            <ListItem>
               <Button href="/activity" variant="" className="text-dark">
                 Analytics
               </Button>
+            </ListItem>
+            <ListItem>
+              <Button href="/opendata" variant="" className="text-dark">
+                Weather Forecast
+              </Button>
+              
             </ListItem>
          
         </List>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-          
-        <div className="mt-0 p-5 card ">
-           <p className="day text-center">{moment().format('dddd')}, <span>{moment().format('LL')}</span></p>
-           <OpenWeather/> 
-        </div>
+        <OpenWeather/> 
       </Main>
     </Box>
   );
