@@ -6,7 +6,15 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { BarChart,PieChart, Bar, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import Grid from '@mui/material/Grid';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import {ComposedChart,Line,Area,PieChart, Bar, Pie,XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 function ActivityChild(){
@@ -18,110 +26,138 @@ function ActivityChild(){
 
 const data = [
         {
-          name: 'Page A',
-          uv: 4000,
-          pv: 2400,
-          amt: 2400,
+          Day: 'Sunday',
+          Temparature: 4000,
+          Humidity: 2400,
+          Average: 2400,
         },
         {
-          name: 'Page B',
-          uv: 3000,
-          pv: 1398,
-          amt: 2210,
+          Day: 'Monday',
+          Temparature: 3000,
+          Humidity: 1398,
+          Average: 2210,
         },
         {
-          name: 'Page C',
-          uv: 2000,
-
-          pv: 9800,
-          amt: 2290,
+          Day: 'Tuesday',
+          Temparature: 2000,
+          Humidity: 9800,
+          Average: 2290,
         },
         {
-          name: 'Page D',
-          uv: 2780,
-          pv: 3908,
-          amt: 2000,
+          Day: 'Wednessday',
+          Temparature: 2780,
+          Humidity: 3908,
+          Average: 2000,
         },
         {
-          name: 'Page E',
-          uv: 1890,
-          pv: 4800,
-          amt: 2181,
+          Day: 'Thursday',
+          Temparature: 1890,
+          Humidity: 4800,
+          Average: 2181,
         },
         {
-          name: 'Page F',
-          uv: 2390,
-          pv: 3800,
-          amt: 2500,
+          Day: 'Friday',
+          Temparature: 2390,
+          Humidity: 3800,
+          Average: 2500,
         },
         {
-          name: 'Page G',
-          uv: 3490,
-          pv: 4300,
-          amt: 2100,
+          Day: 'Saturday',
+          Temparature: 3490,
+          Humidity: 4300,
+          Average: 2100,
         },
       ];
       const data01 = [
-  { name: 'Group A', value: 400 },
-  { name: 'Group B', value: 300 },
-  { name: 'Group C', value: 300 },
-  { name: 'Group D', value: 200 },
+  { Day: 'Group A', value: 400 },
+  { Day: 'Group B', value: 300 },
+  { Day: 'Group C', value: 300 },
+  { Day: 'Group D', value: 200 },
 ];
 const data02 = [
-  { name: 'A1', value: 100 },
-  { name: 'A2', value: 300 },
-  { name: 'B1', value: 100 },
-  { name: 'B2', value: 80 },
-  { name: 'B3', value: 40 },
-  { name: 'B4', value: 30 },
-  { name: 'B5', value: 50 },
-  { name: 'C1', value: 100 },
-  { name: 'C2', value: 200 },
-  { name: 'D1', value: 150 },
-  { name: 'D2', value: 50 },
+  { Day: 'A1', value: 100 },
+  { Day: 'A2', value: 300 },
+  { Day: 'B1', value: 100 },
+  { Day: 'B2', value: 80 },
+  { Day: 'B3', value: 40 },
+  { Day: 'B4', value: 30 },
+  { Day: 'B5', value: 50 },
+  { Day: 'C1', value: 100 },
+  { Day: 'C2', value: 200 },
+  { Day: 'D1', value: 150 },
+  { Day: 'D2', value: 50 },
 ];
-
+function createData(Day, Temparature, Humidity,) {
+  return { Day, Temparature, Humidity,};
+}
+const rows = [
+  createData('Sunday', 159, 6.0, 24, 4.0),
+  createData('Monday', 237, 9.0, 37, 4.3),
+  createData('Tuesday', 262, 16.0, 24, 6.0),
+  createData('Wednesday', 305, 3.7, 67, 4.3),
+  createData('Thursday', 356, 16.0, 49, 3.9),
+];
       
     return(
        <div>
-            <div className="row">
-                <h4 className='m-1 row-header text-center text-primary card-titled'>Plan Your Activities</h4>
-                <div className="">
-                  <div className='card-group '>
-                       
-                        <div className="card cardd m-3">
-                            <img className= "card-img-top" src="https://th.bing.com/th/id/R.c29d8ae4fbf8d19022a96ee526ab1871?rik=zy%2bCcQTNCLtEmg&pid=ImgRaw&r=0" alt="Card image cap"/>
-                            <div className="card-body">
-                                <h5 className="card-title card-titled">Planting Time</h5>
-                                <p className="card-text text-center"><i>From little seeds grow mighty trees.</i></p>
-                            
-                            </div>
+            
+                <h4 className='m-1 row-header text-center text-primary card-titled'>ANALYSIS CHARTS</h4>
+                <div>
+                <Grid container direction="row" columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+                    <Grid item xs={4}>                    
+                    <ComposedChart width={400} height={300} data={data}>
+                    <XAxis dataKey="Day" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <CartesianGrid stroke="#f5f5f5" />
+                    <Area type="monotone" dataKey="Average" fill="#8884d8" stroke="#8884d8" />
+                    <Bar dataKey="Temparature" barSize={20} fill="#0040FA" />
+                    <Line type="monotone" dataKey="Humidity" stroke="#82ca9d" />
+                  </ComposedChart>
+                    </Grid>  
+                      <Grid item xs={4} >        
+                      <PieChart width={400} height={300}>
+                      <Pie data={data01} dataKey="value" nameKey="Day" cx="50%" cy="50%" outerRadius={50} fill="#0040FA" />
+                      <Pie data={data02} dataKey="value" nameKey="Day" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />
+                      </PieChart>
+                    </Grid> 
+                    <Grid item xs={4} >     
+                    <TableContainer width={400} height={300} component={Paper}>
+                    <Table sx={{ minWidth: 300 }} aria-label="simple table">
+                      <TableHead>
+                        <TableRow>
+                          <TableCell aligh="rigt">DAY</TableCell>
+                          <TableCell align="right">TEMPARATURE(AVG)</TableCell>
+                          <TableCell align="right">HUMIDITY(AVG)</TableCell>          
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {rows.map((row) => (
+                          <TableRow
+                            key={row.Day}
+                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                          >
+                            <TableCell component="th" scope="row">
+                              {row.Day}
+                            </TableCell>
+                            <TableCell align="right">{row.Temparature}</TableCell>
+                            <TableCell align="right">{row.Humidity}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </TableContainer>
+                  </Grid>
+                    </Grid>
                         </div>
-                        <div className="card cardd m-3">
-                            <ResponsiveContainer width="100%" height="100%">
-                            <PieChart width={400} height={400}>
-                            <Pie data={data01} dataKey="value" cx="50%" cy="50%" outerRadius={60} fill="#0040FA" />
-                            <Pie data={data02} dataKey="value" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#82ca9d" label />
-                            </PieChart>
-                        </ResponsiveContainer>
-                        </div>
-                    </div>
-                        </div>
-                        <div className="card cardd m-3">
-                        <ResponsiveContainer width="100%" height="100%">
-                        <BarChart width={150} height={40} data={data}>
-                        <Bar dataKey="uv" fill="#8884d8" />
-
-                        </BarChart>
-                         </ResponsiveContainer>
-                         </div>
-
-                            </div>
                       
-
+                     
+               
+                      
          
             <div className="row1">
-                <h4 className='m-1 row-header text-center text-primary card-titled'>input your data</h4>
+                <h4 className='m-1 row-header text-center text-primary card-titled'>DATA ANALYSIS FORMS</h4>
                 <div className="">
                   <div className='card-group '>
                              
@@ -136,7 +172,7 @@ const data02 = [
                         label="district"
                         onChange={handleChange}
                         >
-                        <MenuItem value={10}>Chitipa</MenuItem>
+                        
                         <MenuItem value={20}>Chitipa</MenuItem>
                         <MenuItem value={30}>Karonga</MenuItem>
                         <MenuItem value={40}>Likoma</MenuItem>
@@ -229,9 +265,9 @@ const data02 = [
             
             <div className='row1'>
 
-         
+         </div>
             </div>
-       </div>
+     
     )
 }
 export default ActivityChild;
