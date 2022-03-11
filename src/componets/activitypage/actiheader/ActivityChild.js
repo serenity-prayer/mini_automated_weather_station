@@ -15,8 +15,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {ComposedChart,Line,Area,PieChart, Bar, Pie,XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
-
+import Results from'./Results.jsx';
+import Container from '@material-ui/core/Container'
 function ActivityChild(){
     const [district, setDistrict, crops, setCrops] = React.useState('');
     const handleChange = (event) => {
@@ -155,7 +155,7 @@ const rows = [
                      
                
                       
-         
+          <div className='card border-radius-rounded'>
             <div className="row1">
                 <h4 className='m-1 row-header text-center text-primary card-titled'>DATA ANALYSIS FORMS</h4>
                 <div className="">
@@ -207,6 +207,7 @@ const rows = [
 
                  </h1>
 
+                 
                  <Box sx={{ minWidth: 150 }}>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">crops</InputLabel>
@@ -233,29 +234,31 @@ const rows = [
                         </Select>
                     </FormControl>
                     </Box>
-                    <Button variant="contained" disableElevation>  submit
-                     </Button>
+                    <Button variant="contained" disableElevation>  submit </Button>
 
                
                 </h1>
                 <div>
-                <h1> 
-                <h1>
-       
-
-                </h1>
-                </h1>
-                </div>
-              
                 </div>
                 </div>
                 </div>
             
-            <div className='row1'>
+                <div className='card border-radius-rounded'>
+                <h4 className='m-2 row-header text-center text-primary card-titled'>ANALYSIS RESULTS</h4>
+                <Results/>
+                </div>
+             
 
-         </div>
-            </div>
-     
+        
+
+               
+             
+              
+              </div>
+              </div>
+              </div>
+             
+
     )
 }
 export default ActivityChild;
