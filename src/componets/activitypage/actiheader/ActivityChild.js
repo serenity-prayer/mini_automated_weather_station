@@ -129,7 +129,7 @@ const rows = [
                         <TableRow>
                           <TableCell aligh="rigt">DAY</TableCell>
                           <TableCell align="right">TEMPARATURE(AVG)</TableCell>
-                          <TableCell align="right">HUMIDITY(AVG)</TableCell>          
+                          <TableCell align="right">HUMIDITY(AVG</TableCell>          
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -230,21 +230,9 @@ const rows = [
                         <MenuItem value={80}>Cassava</MenuItem>
                         <MenuItem value={90}>Sweet potatoes</MenuItem>
                         <MenuItem value={90}>Irish potatoes</MenuItem>
-                        
-                        
-                     
                         </Select>
                     </FormControl>
                     </Box>
-                        <h1>  
-                         <h1> 
-                        </h1>
-                        </h1>
-                
-                    <h1>  
-                         <h1>   
-                        </h1>
-                        </h1>
                     <Button variant="contained" disableElevation>  submit
                      </Button>
 
