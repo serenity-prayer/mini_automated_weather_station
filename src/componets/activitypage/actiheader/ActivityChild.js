@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React from 'react';
 import './Activity.css';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -16,40 +16,15 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {ComposedChart,Line,Area,PieChart, Bar, Pie,XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Results from'./Results.jsx';
-import Container from '@material-ui/core/Container';
-import {firebase} from './Firebase.js';
-import { getDatabase, ref, push, set } from "firebase/database";
-import {onValue } from "firebase/database";
+
 
 function ActivityChild(){
-  console.log("Hello hey!");
-
     const [district, setDistrict, crops, setCrops] = React.useState('');
     const handleChange = (event) => {
         setDistrict(event.target.value);
         
       };
 
-      //get data from firebase states
-    const [firedata, setFireData] = useState();
-
-    //setfirebase data function
-    useEffect(() => {
-      onValue(ref(firebase), snapshot => {
-        const data = snapshot.val();
-        
-        if(data!==null){
-          setFireData(data.weatherdata);
-          console.log(firedata);
-          setFireData(Object.values(data));
-          
-        }
-      })
-      
-       
-    },[]);
-
-    
 const data = [
         {
           Day: 'Sunday',
@@ -125,9 +100,8 @@ const rows = [
 ];
       
     return(
-       <div>
-            
-                <h4 className='m-1 row-header text-center text-primary card-titled'>ANALYSIS CHARTS</h4>
+       <div>    
+             <h4 className='m-1 row-header text-center text-primary card-titled'>ANALYSIS CHARTS</h4>
                 <div>
                 <Grid container direction="row" columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     <Grid item xs={4}>                    
@@ -176,17 +150,13 @@ const rows = [
                   </TableContainer>
                   </Grid>
                     </Grid>
-                        </div>
-                      
-                     
-               
-                      
+                        </div> 
+             <h4 className='m-1 row-header text-center text-primary card-titled'>DATA ANALYSIS FORMS</h4>          
           <div className='card border-radius-rounded'>
             <div className="row1">
-                <h4 className='m-1 row-header text-center text-primary card-titled'>DATA ANALYSIS FORMS</h4>
+               
                 <div className="">
-                  <div className='card-group '>
-                             
+                  <div className='card-group '>             
                  <h1><h1>
                  <Box sx={{ minWidth: 150 }}>
                     <FormControl fullWidth>
@@ -197,8 +167,7 @@ const rows = [
                         value={district}
                         label="district"
                         onChange={handleChange}
-                        >
-                        
+                        >      
                         <MenuItem value={20}>Chitipa</MenuItem>
                         <MenuItem value={30}>Karonga</MenuItem>
                         <MenuItem value={40}>Likoma</MenuItem>
@@ -230,10 +199,7 @@ const rows = [
                         </Select>
                     </FormControl>
                     </Box>
-
                  </h1>
-
-                 
                  <Box sx={{ minWidth: 150 }}>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">crops</InputLabel>
@@ -261,30 +227,19 @@ const rows = [
                     </FormControl>
                     </Box>
                     <Button variant="contained" disableElevation>  submit </Button>
-
-               
                 </h1>
                 <div>
                 </div>
                 </div>
                 </div>
-            
+                <h4 className='m-2 row-header text-center text-primary card-titled'>ANALYSIS RESULTS</h4>  
                 <div className='card border-radius-rounded'>
-                <h4 className='m-2 row-header text-center text-primary card-titled'>ANALYSIS RESULTS</h4>
+               
                 <Results/>
                 </div>
-             
-
-        
-
-               
-             
-              
               </div>
               </div>
               </div>
-             
-
     )
 }
 export default ActivityChild;
