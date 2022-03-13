@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import './Activity.css';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -16,14 +16,40 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {ComposedChart,Line,Area,PieChart, Bar, Pie,XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Results from'./Results.jsx';
-import Container from '@material-ui/core/Container'
+import Container from '@material-ui/core/Container';
+import {firebase} from './Firebase.js';
+import { getDatabase, ref, push, set } from "firebase/database";
+import {onValue } from "firebase/database";
+
 function ActivityChild(){
+  console.log("Hello hey!");
+
     const [district, setDistrict, crops, setCrops] = React.useState('');
     const handleChange = (event) => {
         setDistrict(event.target.value);
         
       };
 
+      //get data from firebase states
+    const [firedata, setFireData] = useState();
+
+    //setfirebase data function
+    useEffect(() => {
+      onValue(ref(firebase), snapshot => {
+        const data = snapshot.val();
+        
+        if(data!==null){
+          setFireData(data.weatherdata);
+          console.log(firedata);
+          setFireData(Object.values(data));
+          
+        }
+      })
+      
+       
+    },[]);
+
+    
 const data = [
         {
           Day: 'Sunday',
