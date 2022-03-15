@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import './Activity.css';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
@@ -16,15 +16,37 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {ComposedChart,Line,Area,PieChart, Bar, Pie,XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Results from'./Results.jsx';
-
+import {firebase} from './Firebase.js';
+import { getDatabase, ref, push, set } from "firebase/database";
+import {onValue } from "firebase/database";
 
 function ActivityChild(){
     const [district, setDistrict, crops, setCrops] = React.useState('');
     const handleChange = (event) => {
         setDistrict(event.target.value);
         
-      };
+      }
+    //get data from firebase states
+    const [firedata, setFireData] = useState([]);
+    const [graphdata, setGraphData] = useState ();
+    //setfirebase data function
+    useEffect(() => {
+      onValue(ref(firebase), snapshot => {
+        const data = snapshot.val();
+        //console.log(data.weatherdata);
+        setFireData(data.weatherdata);
+        if(data!==null){
+         
+          
+          // setFireData(Object.values(data));
+         console.log(firedata);
 
+        }
+      })
+
+
+    },[]);
+    
 const data = [
         {
           Day: 'Sunday',
@@ -69,25 +91,7 @@ const data = [
           Average: 2100,
         },
       ];
-      const data01 = [
-  { Day: 'Group A', value: 400 },
-  { Day: 'Group B', value: 300 },
-  { Day: 'Group C', value: 300 },
-  { Day: 'Group D', value: 200 },
-];
-const data02 = [
-  { Day: 'A1', value: 100 },
-  { Day: 'A2', value: 300 },
-  { Day: 'B1', value: 100 },
-  { Day: 'B2', value: 80 },
-  { Day: 'B3', value: 40 },
-  { Day: 'B4', value: 30 },
-  { Day: 'B5', value: 50 },
-  { Day: 'C1', value: 100 },
-  { Day: 'C2', value: 200 },
-  { Day: 'D1', value: 150 },
-  { Day: 'D2', value: 50 },
-];
+
 function createData(Day, Temparature, Humidity,) {
   return { Day, Temparature, Humidity,};
 }
@@ -105,23 +109,18 @@ const rows = [
                 <div>
                 <Grid container direction="row" columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                     <Grid item xs={4}>                    
-                    <ComposedChart width={400} height={300} data={data}>
+                    <ComposedChart width={400} height={300} data={firedata}>
                     <XAxis dataKey="Day" />
                     <YAxis />
                     <Tooltip />
                     <Legend />
                     <CartesianGrid stroke="#f5f5f5" />
-                    <Area type="monotone" dataKey="Average" fill="#8884d8" stroke="#8884d8" />
                     <Bar dataKey="Temparature" barSize={20} fill="#0040FA" />
-                    <Line type="monotone" dataKey="Humidity" stroke="#82ca9d" />
+                    <Bar dataKey="Humidity" barSize={20} fill="#82ca9d" />
+                
                   </ComposedChart>
-                    </Grid>  
-                      <Grid item xs={4} >        
-                      <PieChart width={400} height={300}>
-                      <Pie data={data01} dataKey="value" nameKey="Day" cx="50%" cy="50%" outerRadius={50} fill="#0040FA" />
-                      <Pie data={data02} dataKey="value" nameKey="Day" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />
-                      </PieChart>
-                    </Grid> 
+                </Grid>  
+                   
                     <Grid item xs={4} >     
                     <TableContainer width={400} height={300} component={Paper}>
                     <Table sx={{ minWidth: 300 }} aria-label="simple table">
