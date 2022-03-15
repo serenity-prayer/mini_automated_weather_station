@@ -19,6 +19,7 @@ import Results from'./Results.jsx';
 import {firebase} from './Firebase.js';
 import { getDatabase, ref, push, set } from "firebase/database";
 import {onValue } from "firebase/database";
+import Iframe from 'react-iframe';
 
 function ActivityChild(){
     const [district, setDistrict, crops, setCrops] = React.useState('');
@@ -120,6 +121,16 @@ const rows = [
                 
                   </ComposedChart>
                 </Grid>  
+                <div className="card  border-radius-rounded m-3">
+                  <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/448261?size=iframe"
+                      width="450"
+                      height="260"
+                      id="myId"
+                      className=""
+                      display="initial"
+                      position="relative"
+                      sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                 </div>
                    
                     <Grid item xs={4} >     
                     <TableContainer width={400} height={300} component={Paper}>
