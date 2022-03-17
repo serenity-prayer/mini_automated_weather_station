@@ -34,13 +34,13 @@ function ActivityChild(){
     useEffect(() => {
       onValue(ref(firebase), snapshot => {
         const data = snapshot.val();
-        //console.log(data.weatherdata);
+        console.log(data.weatherdata);
         setFireData(data.weatherdata);
         if(data!==null){
          
           
           // setFireData(Object.values(data));
-         console.log(firedata);
+         //console.log(firedata);
 
         }
       })
@@ -131,7 +131,7 @@ const rows = [
                       position="relative"
                       sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
                  </div>
-                   
+                  
                     <Grid item xs={4} >     
                     <TableContainer width={400} height={300} component={Paper}>
                     <Table sx={{ minWidth: 300 }} aria-label="simple table">
@@ -161,95 +161,28 @@ const rows = [
                   </Grid>
                     </Grid>
                         </div> 
-             <h4 className='m-1 row-header text-center text-primary card-titled'>DATA ANALYSIS FORMS</h4>          
-          <div className='card border-radius-rounded'>
-            <div className="row1">
-               
-                <div className="">
-                  <div className='card-group '>             
-                 <h1><h1>
-                 <Box sx={{ minWidth: 150 }}>
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">District</InputLabel>
-                        <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={district}
-                        label="district"
-                        onChange={handleChange}
-                        >      
-                        <MenuItem value={20}>Chitipa</MenuItem>
-                        <MenuItem value={30}>Karonga</MenuItem>
-                        <MenuItem value={40}>Likoma</MenuItem>
-                        <MenuItem value={50}>Mzimba</MenuItem>
-                        <MenuItem value={60}>NkhataBay</MenuItem>
-                        <MenuItem value={70}>Rumphi</MenuItem>
-                        <MenuItem value={80}>Dedza</MenuItem>
-                        <MenuItem value={90}>Dowa</MenuItem>
-                        <MenuItem value={100}>Kasungu</MenuItem>
-                        <MenuItem value={110}>Lilongwe</MenuItem>
-                        <MenuItem value={120}>Mchinji</MenuItem>
-                        <MenuItem value={130}>Nkhotakota</MenuItem>
-                        <MenuItem value={140}>Ntcheu</MenuItem>
-                        <MenuItem value={150}>Ntchisi</MenuItem>
-                        <MenuItem value={160}>Salima</MenuItem>
-                        <MenuItem value={170}>Balaka</MenuItem>
-                        <MenuItem value={180}>Blantyre</MenuItem>
-                        <MenuItem value={190}>Chikwawa</MenuItem>
-                        <MenuItem value={200}>Chiradzulu</MenuItem>
-                        <MenuItem value={210}>Machinga</MenuItem>
-                        <MenuItem value={220}>Mangochi</MenuItem>
-                        <MenuItem value={230}>Mulanje</MenuItem>
-                        <MenuItem value={240}>Mwanza</MenuItem>
-                        <MenuItem value={250}>Neno</MenuItem>
-                        <MenuItem value={260}>Nsanje</MenuItem>
-                        <MenuItem value={270}>Phalombe</MenuItem>
-                        <MenuItem value={280}>Thyolo</MenuItem>
-                        <MenuItem value={290}>Zomba</MenuItem>
-                        </Select>
-                    </FormControl>
-                    </Box>
-                 </h1>
-                 <Box sx={{ minWidth: 150 }}>
-                    <FormControl fullWidth>
-                        <InputLabel id="demo-simple-select-label">crops</InputLabel>
-                        <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={crops}
-                        label="Crops"
-                        onChange={handleChange}
-                        >
-                        <MenuItem value={10}>Maize</MenuItem>
-                        <MenuItem value={20}>Rice</MenuItem>
-                        <MenuItem value={30}>Groundnuts</MenuItem>
-                        <MenuItem value={30}>Sugar Cane</MenuItem>
-                        <MenuItem value={40}>Legumes</MenuItem>
-                        <MenuItem value={50}>banana</MenuItem>
-                        <MenuItem value={60}>Tea</MenuItem>
-                        <MenuItem value={70}>Soya</MenuItem>
-                        <MenuItem value={80}>Tobacco</MenuItem>
-                        <MenuItem value={90}>Cotton</MenuItem>
-                        <MenuItem value={80}>Cassava</MenuItem>
-                        <MenuItem value={90}>Sweet potatoes</MenuItem>
-                        <MenuItem value={90}>Irish potatoes</MenuItem>
-                        </Select>
-                    </FormControl>
-                    </Box>
-                    <Button variant="contained" disableElevation>  submit </Button>
-                </h1>
-                <div>
-                </div>
-                </div>
-                </div>
+           
                 <h4 className='m-2 row-header text-center text-primary card-titled'>ANALYSIS RESULTS</h4>  
                 <div className='card border-radius-rounded'>
                
                 <Results/>
                 </div>
+
+                <div className="card-group">
+                  <div className="card  border-radius-rounded m-3">
+                    <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/452780"
+                        width="500"
+                        height="300"
+                        id="myId"
+                        className=""
+                        display=""
+                        position="relative"
+                        sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                  </div>
+
+                </div>
               </div>
-              </div>
-              </div>
+            
     )
 }
 export default ActivityChild;
