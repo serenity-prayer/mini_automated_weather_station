@@ -169,10 +169,20 @@ const rows = [
                 </div>
 
                 <div className="card-group">
-                  <div className="card  border-radius-rounded m-3">
-                    <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/452780"
-                        width="500"
-                        height="300"
+                  <div className="card  border-radius-rounded">
+                    <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/452780?height=450&width=650"
+                        width="650"
+                        height="450"
+                        id="myId"
+                        className=""
+                        display=""
+                        position="relative"
+                        sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                  </div>
+                  <div className="card  border-radius-rounded ">
+                    <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/452821?height=450&width=650"
+                        width="650"
+                        height="450"
                         id="myId"
                         className=""
                         display=""
