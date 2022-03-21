@@ -7,6 +7,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -15,11 +16,8 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import Button from '@mui/material/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Charts from './Charts'
-import Datacharts from "./Datacharts";
-import NavText from "./NavText";
-import Footer from "../footer/Footer";
-
+import moment from "moment";
+import HistoryCharts from "./HistroyCharts";
 
 const drawerWidth = 240;
 
@@ -68,7 +66,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-function AnalyCharts() {
+export default function History() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -93,8 +91,10 @@ function AnalyCharts() {
             sx={{ mr: 2, ...(open && { display: 'none' }) }}
           >
             <MenuIcon />
-            </IconButton>
-            <NavText position="center"/>
+          </IconButton>
+          <Typography variant="h6" noWrap component="div"  align="center" className="heading">
+            MINI AUTOMATED WEATHER STATION      ||  Historical Data
+          </Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -134,26 +134,19 @@ function AnalyCharts() {
               </Button>
             </ListItem>
             <ListItem>
-              
               <Button href="/opendata" variant="" className="text-dark">
                 Weather Forecast
               </Button>
+              
             </ListItem>
          
         </List>
       </Drawer>
       <Main open={open}>
-        <DrawerHeader />
-          
-        <div className=" ">
-            <Datacharts/>
-            <h5 className="card-header text-primary text-center">Real Time Charts</h5>
-            <Charts/>
-            <Footer/>
-        </div>
+          <div>
+              <HistoryCharts/>
+          </div>
       </Main>
     </Box>
   );
 }
-
-export default AnalyCharts;
