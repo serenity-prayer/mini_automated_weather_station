@@ -102,15 +102,18 @@ const rows = [
   createData('Tuesday', 262, 16.0, 24, 6.0),
   createData('Wednesday', 305, 3.7, 67, 4.3),
   createData('Thursday', 356, 16.0, 49, 3.9),
+  createData('Friday', 356, 16.0, 49, 3.9),
 ];
       
     return(
        <div>    
              <h4 className='m-1 row-header text-center text-primary card-titled'>ANALYSIS CHARTS</h4>
-                <div>
-                <Grid container direction="row" columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                    <Grid item xs={4}>                    
-                    <ComposedChart width={400} height={300} data={firedata}>
+                
+                <div className="card-group">
+                <div className="card  border-radius-rounded">
+           
+                            
+                    <ComposedChart width={650} height={450} data={firedata}>
                     <XAxis dataKey="Day" />
                     <YAxis />
                     <Tooltip />
@@ -118,28 +121,30 @@ const rows = [
                     <CartesianGrid stroke="#f5f5f5" />
                     <Bar dataKey="Temparature" barSize={20} fill="#0040FA" />
                     <Bar dataKey="Humidity" barSize={20} fill="#82ca9d" />
-                
                   </ComposedChart>
-                </Grid>  
+             
+       
+                </div> 
+                <div className="card-group">
                 <div className="card  border-radius-rounded m-3">
                   <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/448261?size=iframe"
-                      width="450"
-                      height="260"
+                      width="650"
+                      height="450"
                       id="myId"
                       className=""
                       display="initial"
                       position="relative"
                       sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
                  </div>
-                  
-                    <Grid item xs={4} >     
+                 </div>
+                   
                     <TableContainer width={400} height={300} component={Paper}>
                     <Table sx={{ minWidth: 300 }} aria-label="simple table">
                       <TableHead>
                         <TableRow>
                           <TableCell aligh="rigt">DAY</TableCell>
                           <TableCell align="right">TEMPARATURE(AVG)</TableCell>
-                          <TableCell align="right">HUMIDITY(AVG</TableCell>          
+                          <TableCell align="right">HUMIDITY(AVG)</TableCell>          
                         </TableRow>
                       </TableHead>
                       <TableBody>
@@ -158,8 +163,8 @@ const rows = [
                       </TableBody>
                     </Table>
                   </TableContainer>
-                  </Grid>
-                    </Grid>
+              
+                    
                         </div> 
            
                 <h4 className='m-2 row-header text-center text-primary card-titled'>ANALYSIS RESULTS</h4>  
