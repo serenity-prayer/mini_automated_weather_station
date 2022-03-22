@@ -129,6 +129,12 @@ function Activity() {
               </Button>
             </ListItem>
             <ListItem>
+            <Button href="/weatherhistory" variant="" className="text-dark">
+                Historical Data
+              </Button>
+            </ListItem>
+          
+            <ListItem>
               
               <Button href="/opendata" variant="" className="text-dark">
                 Weather Forecast
