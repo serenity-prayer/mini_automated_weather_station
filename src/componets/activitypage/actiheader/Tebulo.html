@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
+    </head>
+
+    <body>
+      
+        <div class="container mt-3">
+
+        <table class="table table-dark text-white">
+            <thead>
+                <th>HUMIDITY</th>
+                <th>RAIN</th>
+                <th>TEMPARATURE</th>
+                <th>TIMESTAMP</th>
+            </thead>
+            <tbody id="tbody1">
+
+            </tbody>
+        </table>
+<!--Firebase Libraries-->
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+
+<script id="MainScript">
+
+//--------------------FIREBASE CONFIGURATION----------------
+const firebaseConfig = {
+  apiKey: "AIzaSyDEP9Sp-gquKxZrQ1zxeCPpf4bNXIn2Kmc",
+  authDomain: "projectdb-e7c09.firebaseapp.com",
+  databaseURL: "https://projectdb-e7c09-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "projectdb-e7c09",
+  storageBucket: "projectdb-e7c09.appspot.com",
+  messagingSenderId: "597742443504",
+  appId: "1:597742443504:web:834b4506ee7347a0771b35"
+};
+firebase.initializeApp(firebaseConfig);
+
+
+//----------------------GETTING ALL DATA FROM FIREBASE-------------------
+function SelectAllData(){
+    firebase.database().ref('weatherdata').once('value',
+    function(AllRecords){
+        AllRecords.forEach(function(CurrentRecord){
+            var hum = CurrentRecord.val().humidity;
+            var rai = CurrentRecord.val().rain;
+            var tem = CurrentRecord.val().temparature;
+            var ti = CurrentRecord.val().timestamp;
+            AddItemsToTable(hum,rai,tem,ti);
+        })
+    }
+    )
+}
+
+                window.onload = SelectAllData;
+
+                        //--------------FILLING THE TABLE----------------
+
+                        function AddItemsToTable(hum,rai,tem,ti){
+                        var tbody =document.getElementById('tbody1');
+                        var trow = document.createElement('tr');
+                        var td1 = document.createElement('td');
+                        var td2 = document.createElement('td');
+                        var td3 = document.createElement('td');
+                        var td4 = document.createElement('td');
+                        td1.innerHTML = hum;
+                        td2.innerHTML = rai;
+                        td3.innerHTML = tem;
+                        td4.innerHTML = ti;
+                        trow.appendChild(td1);
+                        trow.appendChild(td2);
+                        trow.appendChild(td3);
+                        trow.appendChild(td4);
+                        tbody.appendChild(trow);
+
+                        }
+</script>
+
+
+    </body>
+</html>
