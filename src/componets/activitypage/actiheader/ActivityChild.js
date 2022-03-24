@@ -127,7 +127,7 @@ const rows = [
                 </div> 
                 <div className="card-group">
                 <div className="card  border-radius-rounded m-3">
-                  <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/448261?size=iframe"
+                  <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/448261?height=450&width=650"
                       width="650"
                       height="450"
                       id="myId"
