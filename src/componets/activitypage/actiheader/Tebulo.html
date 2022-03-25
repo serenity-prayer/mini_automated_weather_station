@@ -12,7 +12,7 @@
             <thead>
                 <th>HUMIDITY</th>
                 <th>RAIN</th>
-                <th>TEMPARATURE</th>
+                <th>TEMPERATURE</th>
                 <th>TIMESTAMP</th>
             </thead>
             <tbody id="tbody1">
@@ -46,7 +46,7 @@ function SelectAllData(){
         AllRecords.forEach(function(CurrentRecord){
             var hum = CurrentRecord.val().humidity;
             var rai = CurrentRecord.val().rain;
-            var tem = CurrentRecord.val().temparature;
+            var tem = CurrentRecord.val().temperature;
             var ti = CurrentRecord.val().timestamp;
             AddItemsToTable(hum,rai,tem,ti);
         })
