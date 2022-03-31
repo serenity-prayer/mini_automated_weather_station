@@ -20,6 +20,9 @@ import {firebase} from './Firebase.js';
 import { getDatabase, ref, push, set } from "firebase/database";
 import {onValue } from "firebase/database";
 import Iframe from 'react-iframe';
+import Firetable from './Table';
+import Data from "./Data";
+import moment from 'moment';
 
 function ActivityChild(){
     const [district, setDistrict, crops, setCrops] = React.useState('');
@@ -30,68 +33,29 @@ function ActivityChild(){
     //get data from firebase states
     const [firedata, setFireData] = useState([]);
     const [graphdata, setGraphData] = useState ();
-    //setfirebase data function
     useEffect(() => {
       onValue(ref(firebase), snapshot => {
         const data = snapshot.val();
-        console.log(data.weatherdata);
         setFireData(data.weatherdata);
         if(data!==null){
-         
-          
           // setFireData(Object.values(data));
-         //console.log(firedata);
+      
 
         }
-      })
-
-
-    },[]);
+      })},[]);
     
-const data = [
-        {
-          Day: 'Sunday',
-          Temparature: 4000,
-          Humidity: 2400,
-          Average: 2400,
-        },
-        {
-          Day: 'Monday',
-          Temparature: 3000,
-          Humidity: 1398,
-          Average: 2210,
-        },
-        {
-          Day: 'Tuesday',
-          Temparature: 2000,
-          Humidity: 9800,
-          Average: 2290,
-        },
-        {
-          Day: 'Wednessday',
-          Temparature: 2780,
-          Humidity: 3908,
-          Average: 2000,
-        },
-        {
-          Day: 'Thursday',
-          Temparature: 1890,
-          Humidity: 4800,
-          Average: 2181,
-        },
-        {
-          Day: 'Friday',
-          Temparature: 2390,
-          Humidity: 3800,
-          Average: 2500,
-        },
-        {
-          Day: 'Saturday',
-          Temparature: 3490,
-          Humidity: 4300,
-          Average: 2100,
-        },
-      ];
+    const dataHolder = ()=>{
+      // let data03 =firedata;
+      // console.log(data03);
+      let datakeyHolder = Object.keys(firedata);
+      let valuesHolder = [];
+      
+      datakeyHolder.map(data=>{
+         valuesHolder.push(firedata[data])
+       
+      })
+      return valuesHolder
+    }
 
 function createData(Day, Temparature, Humidity,) {
   return { Day, Temparature, Humidity,};
@@ -113,14 +77,15 @@ const rows = [
                 <div className="card  border-radius-rounded">
            
                             
-                    <ComposedChart width={650} height={450} data={firedata}>
-                    <XAxis dataKey="Day" />
+                    <ComposedChart width={650} height={450} data={dataHolder()}>
+                    <XAxis dataKey="timestamp" />
                     <YAxis />
                     <Tooltip />
                     <Legend />
                     <CartesianGrid stroke="#f5f5f5" />
-                    <Bar dataKey="Temparature" barSize={20} fill="#0040FA" />
-                    <Bar dataKey="Humidity" barSize={20} fill="#82ca9d" />
+                    <Bar dataKey="temperature" barSize={20} fill="#0040FA" />
+                    <Bar dataKey="rain" barSize={20} fill="#006994" />
+                    <Bar dataKey="humidity" barSize={20} fill="#82ca9d" />
                   </ComposedChart>
              
        
@@ -196,7 +161,6 @@ const rows = [
                   </div>
 
                 </div>
-               
               </div>
             
     )
