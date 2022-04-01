@@ -71,38 +71,34 @@ const rows = [
       
     return(
        <div>    
-             <h4 className='m-1 row-header text-center text-primary card-titled'>ANALYSIS CHARTS</h4>
-                
+             <h4 className='m-1 row-header text-center text-primary card-titled'>ANALYSIS CHARTS</h4>  
                 <div className="card-group">
-                <div className="card  border-radius-rounded">
-           
-                            
+
+                  <div className="card  border-radius-rounded">
                     <ComposedChart width={650} height={450} data={dataHolder()}>
-                    <XAxis dataKey="timestamp" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <CartesianGrid stroke="#f5f5f5" />
-                    <Bar dataKey="temperature" barSize={20} fill="#0040FA" />
-                    <Bar dataKey="rain" barSize={20} fill="#006994" />
-                    <Bar dataKey="humidity" barSize={20} fill="#82ca9d" />
-                  </ComposedChart>
-             
-       
-                </div> 
+                      <XAxis dataKey= {moment(new Date(1000)).format('LL')} />
+                      <YAxis/>
+                      <Tooltip/>
+                      <Legend/>
+                      <CartesianGrid stroke="#f5f5f5" />
+                      <Bar dataKey="temperature" barSize={20} fill="#FF5733 " />
+                      <Bar dataKey="rain" barSize={20} fill="#0040FA" />
+                      <Bar dataKey="humidity" barSize={20} fill="#82ca9d" />
+                    </ComposedChart>
+                  </div> 
+
                 <div className="card-group">
-                <div className="card  border-radius-rounded m-3">
-                  <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/448261?height=450&width=650"
-                      width="650"
-                      height="450"
-                      id="myId"
-                      className=""
-                      display="initial"
-                      position="relative"
-                      sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                  <div className="card  border-radius-rounded m-3">
+                    <Iframe  url="https://thingspeak.com/apps/matlab_visualizations/448261?height=450&width=650"
+                        width="650"
+                        height="450"
+                        id="myId"
+                        className=""
+                        display="initial"
+                        position="relative"
+                        sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                  </div>
                  </div>
-                 </div>
-                   
                     <TableContainer width={400} height={300} component={Paper}>
                     <Table sx={{ minWidth: 300 }} aria-label="simple table">
                       <TableHead>
@@ -128,10 +124,7 @@ const rows = [
                       </TableBody>
                     </Table>
                   </TableContainer>
-              
-                    
-                        </div> 
-           
+               </div> 
                 <h4 className='m-2 row-header text-center text-primary card-titled'>ANALYSIS RESULTS</h4>  
                 <div className='card border-radius-rounded'>
                
