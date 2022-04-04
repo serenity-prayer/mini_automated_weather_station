@@ -15,7 +15,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {ComposedChart,Line,Area,PieChart, Bar, Pie,XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import Results from'./Results.jsx';
 import {firebase} from './Firebase.js';
 import { getDatabase, ref, push, set } from "firebase/database";
 import {onValue } from "firebase/database";
@@ -23,6 +22,7 @@ import Iframe from 'react-iframe';
 import Firetable from './Table';
 import Data from "./Data";
 import moment from 'moment';
+import Recommend from './Recommend';
 
 function ActivityChild(){
     const [district, setDistrict, crops, setCrops] = React.useState('');
@@ -56,6 +56,10 @@ function ActivityChild(){
       })
       return valuesHolder
     }
+    // working with recommendation data
+    const recommendationData = [
+     1, 2 , 3, 4, 5
+    ]
 
 function createData(Day, Temparature, Humidity,) {
   return { Day, Temparature, Humidity,};
@@ -127,8 +131,8 @@ const rows = [
                </div> 
                 <h4 className='m-2 row-header text-center text-primary card-titled'>ANALYSIS RESULTS</h4>  
                 <div className='card border-radius-rounded'>
-               
-                <Results/>
+                    {/* {get results from recommended componets} */}
+                    <Recommend/>
                 </div>
 
                 <div className="card-group">
