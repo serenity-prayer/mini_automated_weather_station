@@ -132,7 +132,7 @@ const rows = [
                 <h4 className='m-2 row-header text-center text-primary card-titled'>ANALYSIS RESULTS</h4>  
                 <div className='card border-radius-rounded'>
                     {/* {get results from recommended componets} */}
-                    <Recommend/>
+                    {/* <Recommend/> */}
                 </div>
 
                 <div className="card-group">

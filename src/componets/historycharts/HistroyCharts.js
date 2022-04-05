@@ -28,21 +28,45 @@ function HistoryCharts() {
     },[]);
      
     return(
-        <div className=" m">
+                    
+        <div className=" m ml-3 pl-3">
+            <div>TEMPERATURE</div>
               <div className='col border-radius-rounded'>
                     <Iframe
-                        url='https://api.thingspeak.com/channels/1635256/charts/1?start=2022-01-01%2000:00:00&color=4169e1&dynamic=true&title=Temperature%20&type=spline&xaxis=Time&yaxis=&height=350&width=1650'
+                        url='https://api.thingspeak.com/channels/1635256/charts/1?start=2022-01-01%2000:00:00&color=4169e1&dynamic=true&title=TEMPERATURE%20&type=spline&xaxis=Time&yaxis=&height=350&width=1650'
                         width='1650'
                         height='350'
-                        />
+                        display="initial"
+                      position="relative"
+                      sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
                 </div>
                 <div className='col border-radius-rounded'>
                     <Iframe
-                        url='https://api.thingspeak.com/channels/1635256/charts/2?start=2022-01-01%2000:00:00&color=4169e1&dynamic=true&title=Humidity%20&type=spline&xaxis=Time&yaxis=&height=350&width=1650'
+                        url='https://api.thingspeak.com/channels/1635256/charts/2?start=2022-01-01%2000:00:00&color=4169e1&dynamic=true&title=HUMIDITY%20&type=spline&xaxis=Time&yaxis=&height=350&width=1650'
                         width='1650'
                         height='350'
-                        />
+                        display="initial"
+                        position="relative"
+                        sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
                 </div>
+                <div className='col border-radius-rounded'>
+                    <Iframe
+                        url='https://api.thingspeak.com/channels/1635256/charts/3?start=2022-03-25%2000:00:00&color=4169e1&dynamic=true&title=RAINFALL%20&type=spline&xaxis=Time&yaxis=&height=350&width=1650'
+                        width='1650'
+                        height='350'
+                        display="initial"
+                      position="relative"
+                      sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                        </div>
+                        <div className='col border-radius-rounded'>
+                    <Iframe
+                        url='https://api.thingspeak.com/channels/1635256/charts/4?start=2022-01-01%2000:00:00&color=4169e1&dynamic=true&title=LIGHT-INTENSITY%20&type=spline&xaxis=Time&yaxis=&height=350&width=1650'
+                        width='1650'
+                        height='350'
+                        display="initial"
+                        position="relative"
+                        sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                        </div> 
         </div>
     )
 }

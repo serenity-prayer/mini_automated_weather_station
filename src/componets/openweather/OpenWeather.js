@@ -156,7 +156,7 @@ function OpenWeather(){
                         
                        <div className="card-group">
                             <div className="card cardd">
-                                <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(firstdate * 1000)).format('dddd')} |  {moment(new Date(firstdate * 1000)).format('LL')}</p>
+                                <p className="card-header card-titled bg-primary text-white text-justify text-center">Today |  {moment(new Date(firstdate * 1000)).format('LL')}</p>
                                 <div className="card-body">
                                     <span>
                                         <i className="d-inline p-2 header">Temperature:</i>
@@ -173,7 +173,7 @@ function OpenWeather(){
             
                             </div>
                             <div className="card cardd">
-                                <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(seconddate * 1000)).format('dddd')} |  {moment(new Date(seconddate * 1000)).format('LL')}</p>
+                                <p className="card-header card-titled bg-primary text-white text-justify text-center">Tommorrow ( {moment(new Date(seconddate * 1000)).format('dddd')} ) |  {moment(new Date(seconddate * 1000)).format('LL')}</p>
                                 <div className="card-body">
                                     <span>
                                         <i className="d-inline p-2 header">Temperature:</i>
