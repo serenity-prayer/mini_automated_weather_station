@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import moment from 'moment';
 import Iframe from 'react-iframe';
+import {ComposedChart,Line,Area,PieChart, Bar, Pie,XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 function ActivityTopper() {
@@ -12,6 +13,7 @@ function ActivityTopper() {
     const [recotemp, setRecoData] = useState([]);
     const [humiditydata, setHumidity] = useState([]);
     const [lightdata, setLight] = useState([]);
+    const [data, setData] = useState([]);
 
     //fetching data for reccommendations
     useEffect(() => {
@@ -39,6 +41,9 @@ function ActivityTopper() {
                 })
                 .catch(err => { })
         }
+        /**
+         * Fetch the data from the ThingSpeak API and store it in a variable
+         */
         function lightData() {
             fetch('https://api.thingspeak.com/channels/1635256/fields/4.json?api_key=K1BT6Y77BEFGSQSB&&average=monthly')
                 .then(items => items.json())
@@ -47,15 +52,24 @@ function ActivityTopper() {
                 })
                 .catch(err => { })
         }
-
+        function feedsData() {
+            fetch('https://api.thingspeak.com/channels/1635256/feeds.json?api_key=K1BT6Y77BEFGSQSB&&average=monthly')
+                .then(items => items.json())
+                .then(results => {
+                    setData(results.feeds)
+                })
+                .catch(err => { })
+        }
 
         //call the functions
+        feedsData();
         humData();
         rainData();
         tempData();
         lightData();
-    }, [])
 
+    }, [])
+    console.log(data)
     //elimating null variables and give it to new array
     let rainArray = []
     for (let item of recorain) {
@@ -226,7 +240,7 @@ function ActivityTopper() {
                 </div>
             )
         }
-        else if (monthly === "April" && averageRain > 0) {
+        else if (monthly === "April" || averageRain < 1) {
             return (
                 <>
                     <div className="card m-1">
@@ -320,7 +334,7 @@ function ActivityTopper() {
             return (
                 <div className="">
                     <div className="card">
-                        <img className="card-img-top" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/R.1ba40bc1a213028b6b5268c33cb72146?rik=dP1LdI0%2bknlsSQ&pid=ImgRaw&r=0" />
                         <div className="card-body">
                             <h5 className="card-title">Maize Crops</h5>
                             <ul className="card-text">
@@ -361,11 +375,271 @@ function ActivityTopper() {
 
             )
         }
-        else {
-            return (
-                <h1>oops</h1>
+        else if(monthly === "July" && averageRain >0){
+            return(
+                <>
+                <div className="card m-1">
+                    <img className="card-img-top" src=" https://th.bing.com/th/id/OIP.fNkMI09qUhsi-4JTnqLt7gHaFj?pid=ImgDet&rs=1" />
+                    <div className="card-body">
+                        <h5 className="card-title">Maize Crops</h5>
+                        <ul className="card-text">
+                            <li>Purchasing Inputs</li>
+                            <li>Marketing</li>
+                            <li>Planting dry Season Crop</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.GOONna1dC98OIg1mpXWmJQHaEK?pid=ImgDet&rs=1" alt="tomato" />
+                    <div className="card-body">
+                        <h5 className="card-title">GroundNuts Crops</h5>
+
+                        <ul className="card-text">
+                            <li>Marketing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" src="https://neweralive.na/storage/uploads/2020/11/Farmers1.jpg" alt="livestock" />
+                    <div className="card-body">
+                        <h5 className="card-title">Livestock Management</h5>
+
+                        <ul className="card-text">
+                            <li>Stakk Feeding </li>
+                            <li>Disease Surveillance</li>
+                            <li>Meat Inspection</li>
+                        </ul>
+                    </div>
+                </div>
+            </>
+
             )
         }
+        else if (monthly ==="August" && averageRain > 0){
+            return(
+                <>
+                <div className="card m-1">
+                
+                    <img className="card-img-top" src=" https://th.bing.com/th/id/R.43acaac7b525cfdb69915da9bc12f14f?rik=UJAb2gqEKD8TfQ&pid=ImgRaw&r=0" />
+                    <div className="card-body">
+                        <h5 className="card-title">Maize Crops</h5>
+                        <ul className="card-text">
+                            <li>Purchasing Inputs</li>
+                            <li>Garden Preparation</li>
+                            <li>Manure Application</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.SqXq9zBdkhCvt3W4qD3VPwHaFS?pid=ImgDet&rs=1" alt="groundnuts" />
+                    <div className="card-body">
+                        <h5 className="card-title">GroundNuts Crops</h5>
+
+                        <ul className="card-text">
+                            <li>Purchasing Inputs</li>
+                            <li>Ridging</li>
+                            <li>Manure Application</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" src="https://th.bing.com/th/id/OIP.mrw2TS1g2J6EltyGKWu2aQHaFj?pid=ImgDet&rs=1" alt="livestock" />
+                    <div className="card-body">
+                        <h5 className="card-title">Livestock Management</h5>
+
+                        <ul className="card-text">
+                            <li>Removing Manure </li>
+                            <li>Constructing Livestock Houses</li>
+                            <li>Anti-rabies Vaccination</li>
+                            <li>Back Quarter Disease Vaccination</li>
+                        </ul>
+                    </div>
+                </div>
+            </>
+
+            )
+        }
+        else if (monthly === "September" && averageRain > 0){
+            return(
+                <>
+                <div className="card m-1">
+                
+                    <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
+                    <div className="card-body">
+                        <h5 className="card-title">Maize Crops</h5>
+                        <ul className="card-text">
+                            <li>Garden Preparation</li>
+                            <li>Purchasing Inputs</li>                            
+                            <li>Manure Application</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.MS3OZkYdOAEbj-3Lqp1UqgHaD-?pid=ImgDet&rs=1" alt="groundnuts" />
+                    <div className="card-body">
+                        <h5 className="card-title">GroundNuts Crops</h5>
+
+                        <ul className="card-text">
+                            <li>Marketing</li>
+                            <li>Ridging</li>
+                            <li>Purchasing Seeds</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
+                    <div className="card-body">
+                        <h5 className="card-title">Livestock Management</h5>
+
+                        <ul className="card-text">
+                            <li>Selecting Breeding Stock</li>
+                            <li>Meat Inspection</li>
+                            <li>Skin Disease Vaccination</li>
+                        </ul>
+                    </div>
+                </div>
+            </>
+            )
+        }
+        else if (monthly === "October"  && averageRain >0){
+            return( 
+                <>
+                <div className="card m-1">
+                
+                    <img className="card-img-top" src="https://www.determinedtodevelop.org/wp-content/uploads/2019/10/Malawi-charity.jpg" />
+                   
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.69f297156189efbf1af249ba077616d7?rik=9PEgUT08kL4VAQ&riu=http%3a%2f%2fwww.ethicalteapartnership.org%2fwp-content%2fuploads%2f2019%2f07%2f9O6A4346-Malawi-Climate-Change.jpg&ehk=plcyZ1yGc5KG6zZUaj%2f5xERNoCCIZfkwsKPj2ZNI8Sk%3d&risl=&pid=ImgRaw&r=0" alt="groundnuts" />
+                    <div className="card-body">
+                        <h5 className="card-title">Holiday Time </h5>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
+                    <div className="card-body">
+                        <h5 className="card-title">Livestock Management</h5>
+
+                        <ul className="card-text">
+                            <li>Selecting Breeding Stock</li>
+                            <li>Meat Inspection</li>
+                            <li>Skin Disease Vaccination</li>
+                        </ul>
+                    </div>
+                </div>
+            </>
+
+            )
+        }
+        else if (monthly === "November" && averageRain < 1){
+            return(
+                <>
+                <div className="card m-1">
+                
+                    <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
+                    <div className="card-body">
+                        <h5 className="card-title">Maize Crops</h5>
+                        <ul className="card-text">
+                            <li>Planting</li>
+                            <li>Basal Dressing</li>                            
+                            <li>Weeding</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.fd77afad048cda2907df10a96be0afa1?rik=YJTeF4%2fD7uFaaA&pid=ImgRaw&r=0" alt="groundnuts" />
+                    <div className="card-body">
+                        <h5 className="card-title">GroundNuts Crops</h5>
+
+                        <ul className="card-text">
+                            <li>Planting</li>
+                            <li>Supplying</li>
+                            <li>Weeding</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
+                    <div className="card-body">
+                        <h5 className="card-title">Livestock Management</h5>
+
+                        <ul className="card-text">
+                            <li>Selecting Breeding Stock</li>
+                            <li>Meat Inspection</li>
+                            <li>Skin Disease Vaccination</li>
+                        </ul>
+                    </div>
+                </div>
+            </>
+            )
+        }
+        else if (monthly ==="December" && averageRain < 1){
+            return(
+                <>
+                <div className="card m-1">
+                
+                    <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
+                    <div className="card-body">
+                        <h5 className="card-title">Maize Crops</h5>
+                        <ul className="card-text">
+                            <li>Planting</li>
+                            <li>Basal Dressing</li>                            
+                            <li>Weeding</li>
+                            <li>Supplying</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.fd77afad048cda2907df10a96be0afa1?rik=YJTeF4%2fD7uFaaA&pid=ImgRaw&r=0" alt="groundnuts" />
+                    <div className="card-body">
+                        <h5 className="card-title">GroundNuts Crops</h5>
+
+                        <ul className="card-text">
+                            <li>Planting</li>
+                            <li>Supplying</li>
+                            <li>Weeding</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="card m-1">
+                    <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
+                    <div className="card-body">
+                        <h5 className="card-title">Livestock Management</h5>
+
+                        <ul className="card-text">
+                            <li>Selecting Breeding Stock</li>
+                            <li>Meat Inspection</li>
+                            <li>Skin Disease Vaccination</li>
+                        </ul>
+                    </div>
+                </div>
+            </>
+            )
+        }
+
+        else {
+            return (
+                <>
+                    <div className="card">
+                        <p>Climate change has made weather unpredictable</p>
+                        <p>Follow Extension Farmers advice in this Season</p>
+                    </div>
+                </>
+            )
+        }
+        
     }
 
     return (
@@ -373,7 +647,19 @@ function ActivityTopper() {
             <h4 className="card-header bg-primary text-white text-center">Recommend Farming Activities</h4>
             <div className="card-group">
                 <div className="card m-1">
-                    chart here
+                    <ResponsiveContainer width="100%" height="100%">
+                        <ComposedChart width={650} height={450} data={data}>
+                            <XAxis/>
+                            <YAxis/>
+                            <Tooltip/>
+                            <Legend/>
+                            <CartesianGrid stroke="#f5f5f5" />
+                            <Bar dataKey="field1" barSize={20} fill="#FF5733 " />
+                            <Area type="field3" dataKey="field3" fill="#8884d8" stroke="#8884d8" />
+                            <Bar dataKey="field2" barSize={20} fill="#0040FA" />
+                            
+                        </ComposedChart>
+                    </ResponsiveContainer>
                 </div>
                 {recommend(moment().format('MMMM'))}
             </div>
@@ -381,7 +667,7 @@ function ActivityTopper() {
             <div className='card-group mt-3'>
 
                 <div className='card border-primary border-radius-rounded p-2'>
-                    graph
+                    
                 </div>
 
                 <div className='card border-primary border-radius-rounded p-2'>
