@@ -8,7 +8,6 @@ function OpenWeather(){
     
     const [lat, setLat] = useState([]);
     const [long, setLong] = useState([]);
-    const [data, setData] = useState();
     const [weather, setWeather] = useState();
 
     const [firstdayTemp, setFistDayTemp] = useState();
@@ -85,7 +84,6 @@ function OpenWeather(){
                 setSecondDate(result.daily[1].dt);
                 setSecondDayHum(result.daily[1].humidity);
                 setSecondDayDesc(result.daily[1].weather[0].description);
-                setData(result.daily[1].rain);
                 setSecondIcon(result.daily[1].weather[0].icon);
 
                 setThirdDayTemp(result.daily[2].temp.max);
