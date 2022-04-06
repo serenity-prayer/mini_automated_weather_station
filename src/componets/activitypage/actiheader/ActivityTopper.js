@@ -646,16 +646,16 @@ function ActivityTopper() {
         <div>
             <h4 className="card-header bg-primary text-white text-center">Recommend Farming Activities</h4>
             <div className="card-group">
-                <div className="card m-1">
+                <div className="card m-2">
                     <ResponsiveContainer width="100%" height="100%">
                         <ComposedChart width={650} height={450} data={data}>
-                            <XAxis/>
+                            
                             <YAxis/>
                             <Tooltip/>
                             <Legend/>
                             <CartesianGrid stroke="#f5f5f5" />
                             <Bar dataKey="field1" barSize={20} fill="#FF5733 " />
-                            <Area type="field3" dataKey="field3" fill="#8884d8" stroke="#8884d8" />
+                            <Area type="monotone" dataKey="field3" fill="#8884d8" stroke="#8884d8" />
                             <Bar dataKey="field2" barSize={20} fill="#0040FA" />
                             
                         </ComposedChart>
@@ -683,9 +683,9 @@ function ActivityTopper() {
                         <tbody>
                             <tr>
                                 <th scope="row">Average</th>
-                                <td>{averageTemp} <sup>0</sup>C</td>
+                                <td>{Math.round(averageTemp)} <sup>0</sup>C</td>
                                 <td>{Math.round(averageHum)} g/m<sup>3</sup></td>
-                                <td>{averageLigh} candela</td>
+                                <td>{Math.round(averageLigh)} candela</td>
                             </tr>
                             <tr>
                                 <th scope="row">Max</th>
