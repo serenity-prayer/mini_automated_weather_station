@@ -677,15 +677,7 @@ function ActivityTopper() {
                                 right: 80,
                                 bottom: 20,
                                 left: 20,
-                            }}
-                            >
-                            <CartesianGrid stroke="#f5f5f5" />
-                            <Tooltip />,
-                            <Legend />
-
-                            <XAxis dataKey="temperature"  label={{ value: 'Temperature', position: 'insideBottomRight', offset: 0 }} />
-                            <YAxis label={{ value: 'Humidity', angle: -90, position: 'insideLeft' }} />
-                            <Legend onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} />
+                            }}>
                             <Line dataKey="temperature" stroke="blue" dot={false} activeDot={false} legendType="none" />
                             <Line dataKey="redLine" stroke="red" dot={false} activeDot={false} legendType="none" />
                         </ComposedChart>
