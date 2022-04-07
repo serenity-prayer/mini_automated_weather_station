@@ -148,9 +148,9 @@ function ActivityTopper() {
     function recommend(monthly) {
         if (monthly === "January" && averageRain > 0) {
             return (
-                <div className="">
+                <>
                     <div className="card">
-                        <img className="card-img-top" />
+                        <img className="card-img-top"  src="https://th.bing.com/th/id/R.ae6d864e67c9a763b7b8209f3b005653?rik=rd9D7sqXUZebMA&riu=http%3a%2f%2fthumb7.shutterstock.com%2fdisplay_pic_with_logo%2f255880%2f255880%2c1281502195%2c1%2fstock-photo-beautiful-green-maize-field-58832020.jpg&ehk=Jx3468FYy%2fkv7K67zAjQPOpe%2bWiRogEZmpJskl8EGeg%3d&risl=&pid=ImgRaw&r=0"/>
                         <div className="card-body">
                             <h5 className="card-title">Maize Crops</h5>
                             <p className="card-text">Banking</p>
@@ -171,7 +171,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/OIP.987IfVoPLp9vgoSHlzBM0AHaFc?pid=ImgDet&rs=1" alt="livestock" />
                         <div className="card-body">
                             <h5 className="card-title">Livestock Management</h5>
 
@@ -182,14 +182,14 @@ function ActivityTopper() {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </>
             )
         }
         else if (monthly === "February" && averageRain > 0) {
             return (
-                <div className="">
+                <>
                     <div className="card">
-                        <img className="card-img-top" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/OIP.MlMFP97cnJArvzWhpGH5RgHaEW?pid=ImgDet&rs=1" />
                         <div className="card-body">
                             <h5 className="card-title">Maize Crops</h5>
                             <p className="card-text">Construct Storage facilities in readiness for harvesting</p>
@@ -197,7 +197,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
+                        <img className="card-img-top" src="https://i.pinimg.com/originals/18/88/b8/1888b8ccd13a85a426fe54bcda80e944.jpg" alt="tomato" />
                         <div className="card-body">
                             <h5 className="card-title">Tomato Crops</h5>
 
@@ -209,7 +209,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/OIP.SbvvRYmIU_sxzXRArS_ajQHaDt?pid=ImgDet&w=1280&h=640&rs=1" alt="livestock" />
                         <div className="card-body">
                             <h5 className="card-title">Livestock Management</h5>
 
@@ -219,15 +219,15 @@ function ActivityTopper() {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </>
             )
         }
         else if (monthly === 'March' && averageRain > 0) {
 
             return (
-                <div className="">
+                <>
                     <div className="card">
-                        <img className="card-img-top" />
+                        <img className="card-img-top" src="https://bloximages.chicago2.vip.townnews.com/agupdate.com/content/tncms/assets/v3/editorial/2/e8/2e80edfd-5f6d-571b-96e8-21bda5b95760/599c584d03c1b.image.jpg?resize=1200%2C802"/>
                         <div className="card-body">
                             <h5 className="card-title">Maize Crops</h5>
                             <ul className="card-text">
@@ -239,7 +239,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/OIP.nmNwipm1k7hXK4U75iNq6AAAAA?pid=ImgDet&w=300&h=200&rs=1" alt="tomato" />
                         <div className="card-body">
                             <h5 className="card-title">Tomato Crops</h5>
 
@@ -250,7 +250,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/R.6f982ae71b378e6dd564a110182cae75?rik=NFWd8bPdA5B7gQ&pid=ImgRaw&r=0" alt="livestock" />
                         <div className="card-body">
                             <h5 className="card-title">Livestock Management</h5>
 
@@ -263,7 +263,7 @@ function ActivityTopper() {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </>
             )
         }
         else if (monthly === "April" || averageRain < 1) {
@@ -313,9 +313,9 @@ function ActivityTopper() {
         }
         else if (monthly === "May" && averageRain > 0) {
             return (
-                <div className="">
+                <>
                     <div className="card">
-                        <img className="card-img-top" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/OIP.U8lEh0GSUrnlUDKFrBBzBQHaFj?w=238&h=180&c=7&r=0&o=5&dpr=1.12&pid=1.7"/>
                         <div className="card-body">
                             <h5 className="card-title">Maize Crops</h5>
                             <ul className="card-text">
@@ -326,7 +326,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
+                        <img className="card-img-top" src="./img/havest.jpg" alt="ground nuts" />
                         <div className="card-body">
                             <h5 className="card-title">GroundNuts Crops</h5>
 
@@ -340,7 +340,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/R.806ffe0eb140e3217280a9c8baeb85cd?rik=DLLflZ01Ph0YDA&riu=http%3a%2f%2fwww.pashudhanpraharee.com%2fwp-content%2fuploads%2f2019%2f08%2f33-1.jpg&ehk=1DDdVwvwz%2f7V6TofIE7EpKASimK7ocpciUWcaZOAtNk%3d&risl=&pid=ImgRaw&r=0" alt="livestock" />
                         <div className="card-body">
                             <h5 className="card-title">Livestock Management</h5>
 
@@ -352,13 +352,13 @@ function ActivityTopper() {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </>
 
             )
         }
         else if (monthly === "June") {
             return (
-                <div className="">
+                <>
                     <div className="card">
                         <img className="card-img-top" src="https://th.bing.com/th/id/R.1ba40bc1a213028b6b5268c33cb72146?rik=dP1LdI0%2bknlsSQ&pid=ImgRaw&r=0" />
                         <div className="card-body">
@@ -372,7 +372,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/OIP.dZHNtr2TCFsfUseT6iZoeAHaEK?pid=ImgDet&rs=1" alt="tomato" />
                         <div className="card-body">
                             <h5 className="card-title">GroundNuts Crops</h5>
 
@@ -386,7 +386,7 @@ function ActivityTopper() {
                     </div>
 
                     <div className="card">
-                        <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
+                        <img className="card-img-top" src="https://th.bing.com/th/id/OIP.Q62FPdHIzMNs6dt3BdiijwHaDt?pid=ImgDet&rs=1" alt="livestock" />
                         <div className="card-body">
                             <h5 className="card-title">Livestock Management</h5>
 
@@ -397,7 +397,7 @@ function ActivityTopper() {
                             </ul>
                         </div>
                     </div>
-                </div>
+                </>
 
             )
         }
