@@ -19,7 +19,7 @@ import Charts from './Charts'
 import Datacharts from "./Datacharts";
 import NavText from "./NavText";
 import Footer from "../footer/Footer";
-
+import { Offline, Online } from "react-detect-offline";
 
 const drawerWidth = 240;
 
@@ -146,9 +146,16 @@ function AnalyCharts() {
         <DrawerHeader />
           
         <div className=" ">
-            <Datacharts/>
-            <h5 className="card-header text-primary text-center">Real Time Charts</h5>
-            <Charts/>
+            <Online>
+              <Datacharts/>
+              <h5 className="card-header text-primary text-center">Real Time Charts</h5>
+              <Charts/>
+            </Online>
+            <Offline>
+              <h5 className="card-header text-secondary text-center">check your internet connection! or contact ICT officer</h5>
+            </Offline>
+                        
+            
             <Footer/>
         </div>
       </Main>

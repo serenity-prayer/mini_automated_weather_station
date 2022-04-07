@@ -16,8 +16,9 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import Button from '@mui/material/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
-import moment from "moment";
 import HistoryCharts from "./HistroyCharts";
+import './history.css'
+import { Offline, Online } from "react-detect-offline";
 
 const drawerWidth = 240;
 
@@ -143,8 +144,18 @@ export default function History() {
         </List>
       </Drawer>
       <Main open={open}>
-          <div>
+          <div className="card">
+          
+            <Online>
               <HistoryCharts/>
+            </Online>
+
+            <Offline>
+              <center className="offline">
+                <h5 className="card-header text-secondary mt-5 text-center">check your internet connection! or contact ICT officer</h5>
+              </center>
+              
+            </Offline>
           </div>
       </Main>
     </Box>
