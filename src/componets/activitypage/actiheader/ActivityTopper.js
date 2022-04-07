@@ -57,11 +57,11 @@ function ActivityTopper() {
             fetch('https://api.thingspeak.com/channels/1635256/feeds.json?api_key=K1BT6Y77BEFGSQSB&&average=monthly')
                 .then(items => items.json())
                 .then(results => {
-                    setData(results.feeds)
-                  
+                    setData(results.feeds)   
                 })
                 .catch(err => { })
         }
+        
 
         //call the functions
         feedsData();
@@ -137,8 +137,14 @@ function ActivityTopper() {
     const averageHum = averageCount(humArray);
     const averageLigh = averageCount(lightArray);
     
-    
-    //recommedation conditions
+    const data01 = [
+        { name: 'Temperature', value: Math.round(averageTemp) },
+        { name: 'Humdity', value: Math.round(averageHum) },
+        { name: 'Light Intensity', value: Math.round(averageLigh) }
+      ];
+    const COLORS = ['#e67e22', '#0984e3', '#00b894', '#0088FE'];
+
+    //recommedation conditions   
     function recommend(monthly) {
         if (monthly === "January" && averageRain > 0) {
             return (
@@ -146,7 +152,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" />
                         <div className="card-body">
-                            <h5 className="card-title">Maize Crops</h5>
+                            <h5 className="card-title text-secondary">Maize Crops</h5>
                             <p className="card-text">Banking</p>
                         </div>
                     </div>
@@ -154,7 +160,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
                         <div className="card-body">
-                            <h5 className="card-title">Tomato Crops</h5>
+                            <h5 className="card-title text-secondary">Tomato Crops</h5>
 
                             <ul className="card-text">
                                 <li>Spraying</li>
@@ -167,7 +173,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
                         <div className="card-body">
-                            <h5 className="card-title">Livestock Management</h5>
+                            <h5 className="card-title text-secondary">Livestock Management</h5>
 
                             <ul className="card-text">
                                 <li>Strategic Dipping </li>
@@ -185,7 +191,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" />
                         <div className="card-body">
-                            <h5 className="card-title">Maize Crops</h5>
+                            <h5 className="card-title text-secondary">Maize Crops</h5>
                             <p className="card-text">Construct Storage facilities in readiness for harvesting</p>
                         </div>
                     </div>
@@ -193,7 +199,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
                         <div className="card-body">
-                            <h5 className="card-title">Tomato Crops</h5>
+                            <h5 className="card-title text-secondary">Tomato Crops</h5>
 
                             <ul className="card-text">
                                 <li>Harvesting</li>
@@ -205,7 +211,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
                         <div className="card-body">
-                            <h5 className="card-title">Livestock Management</h5>
+                            <h5 className="card-title text-secondary">Livestock Management</h5>
 
                             <ul className="card-text">
                                 <li>Making Silage and hay</li>
@@ -223,7 +229,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" />
                         <div className="card-body">
-                            <h5 className="card-title">Maize Crops</h5>
+                            <h5 className="card-title text-secondary">Maize Crops</h5>
                             <ul className="card-text">
                                 <li>Construct Storage facilities</li>
                                 <li>Harvesting</li>
@@ -235,7 +241,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
                         <div className="card-body">
-                            <h5 className="card-title">Tomato Crops</h5>
+                            <h5 className="card-title text-secondary">Tomato Crops</h5>
 
                             <ul className="card-text">
                                 <li>Harvesting</li>
@@ -246,7 +252,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
                         <div className="card-body">
-                            <h5 className="card-title">Livestock Management</h5>
+                            <h5 className="card-title text-secondary">Livestock Management</h5>
 
                             <ul className="card-text">
                                 <li>Stall Feeding </li>
@@ -266,7 +272,7 @@ function ActivityTopper() {
                     <div className="card   border-radius-rounded m-3 p-1">
                         <img className="card-img-top" src=" https://th.bing.com/th/id/OIP.fNkMI09qUhsi-4JTnqLt7gHaFj?pid=ImgDet&rs=1" />
                         <div className="card-body">
-                            <h5 className="card-title">Maize Crops</h5>
+                            <h5 className="card-title text-secondary">Maize Crops</h5>
                             <ul className="card-text">
                                 <li>Harvesting</li>
                                 <li>Constructing Storage facilities</li>
@@ -278,7 +284,7 @@ function ActivityTopper() {
                     <div className="card   border-radius-rounded m-3 p-1">
                         <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.GOONna1dC98OIg1mpXWmJQHaEK?pid=ImgDet&rs=1" alt="tomato" />
                         <div className="card-body">
-                            <h5 className="card-title">GroundNuts Crops</h5>
+                            <h5 className="card-title text-secondary">GroundNuts Crops</h5>
 
                             <ul className="card-text">
                                 <li>Lifting and Drying</li>
@@ -292,7 +298,7 @@ function ActivityTopper() {
                     <div className="card   border-radius-rounded m-3 p-1">
                         <img className="card-img-top" src="https://neweralive.na/storage/uploads/2020/11/Farmers1.jpg" alt="livestock" />
                         <div className="card-body">
-                            <h5 className="card-title">Livestock Management</h5>
+                            <h5 className="card-title text-secondary">Livestock Management</h5>
 
                             <ul className="card-text">
                                 <li>Newcastle Disease Vaccination </li>
@@ -311,7 +317,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" />
                         <div className="card-body">
-                            <h5 className="card-title">Maize Crops</h5>
+                            <h5 className="card-title text-secondary">Maize Crops</h5>
                             <ul className="card-text">
                                 <li>Garden Preparation</li>
                                 <li>Planting</li>
@@ -322,7 +328,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
                         <div className="card-body">
-                            <h5 className="card-title">GroundNuts Crops</h5>
+                            <h5 className="card-title text-secondary">GroundNuts Crops</h5>
 
                             <ul className="card-text">
 
@@ -336,7 +342,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
                         <div className="card-body">
-                            <h5 className="card-title">Livestock Management</h5>
+                            <h5 className="card-title text-secondary">Livestock Management</h5>
 
                             <ul className="card-text">
                                 <li>Remove Manure </li>
@@ -356,7 +362,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="https://th.bing.com/th/id/R.1ba40bc1a213028b6b5268c33cb72146?rik=dP1LdI0%2bknlsSQ&pid=ImgRaw&r=0" />
                         <div className="card-body">
-                            <h5 className="card-title">Maize Crops</h5>
+                            <h5 className="card-title text-secondary">Maize Crops</h5>
                             <ul className="card-text">
                                 <li>Harvesting</li>
                                 <li>Constructing Storage facilities</li>
@@ -368,7 +374,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/havest.jpg" alt="tomato" />
                         <div className="card-body">
-                            <h5 className="card-title">GroundNuts Crops</h5>
+                            <h5 className="card-title text-secondary">GroundNuts Crops</h5>
 
                             <ul className="card-text">
                                 <li>Lifting and Drying</li>
@@ -382,7 +388,7 @@ function ActivityTopper() {
                     <div className="card">
                         <img className="card-img-top" src="./img/dipping.jpg" alt="livestock" />
                         <div className="card-body">
-                            <h5 className="card-title">Livestock Management</h5>
+                            <h5 className="card-title text-secondary">Livestock Management</h5>
 
                             <ul className="card-text">
                                 <li>Newcastle Disease Vaccination </li>
@@ -401,7 +407,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src=" https://th.bing.com/th/id/OIP.fNkMI09qUhsi-4JTnqLt7gHaFj?pid=ImgDet&rs=1" />
                     <div className="card-body">
-                        <h5 className="card-title">Maize Crops</h5>
+                        <h5 className="card-title text-secondary">Maize Crops</h5>
                         <ul className="card-text">
                             <li>Purchasing Inputs</li>
                             <li>Marketing</li>
@@ -413,7 +419,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.GOONna1dC98OIg1mpXWmJQHaEK?pid=ImgDet&rs=1" alt="tomato" />
                     <div className="card-body">
-                        <h5 className="card-title">GroundNuts Crops</h5>
+                        <h5 className="card-title text-secondary">GroundNuts Crops</h5>
 
                         <ul className="card-text">
                             <li>Marketing</li>
@@ -424,7 +430,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://neweralive.na/storage/uploads/2020/11/Farmers1.jpg" alt="livestock" />
                     <div className="card-body">
-                        <h5 className="card-title">Livestock Management</h5>
+                        <h5 className="card-title text-secondary">Livestock Management</h5>
 
                         <ul className="card-text">
                             <li>Stakk Feeding </li>
@@ -444,7 +450,7 @@ function ActivityTopper() {
                 
                     <img className="card-img-top" src=" https://th.bing.com/th/id/R.43acaac7b525cfdb69915da9bc12f14f?rik=UJAb2gqEKD8TfQ&pid=ImgRaw&r=0" />
                     <div className="card-body">
-                        <h5 className="card-title">Maize Crops</h5>
+                        <h5 className="card-title text-secondary">Maize Crops</h5>
                         <ul className="card-text">
                             <li>Purchasing Inputs</li>
                             <li>Garden Preparation</li>
@@ -456,7 +462,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.SqXq9zBdkhCvt3W4qD3VPwHaFS?pid=ImgDet&rs=1" alt="groundnuts" />
                     <div className="card-body">
-                        <h5 className="card-title">GroundNuts Crops</h5>
+                        <h5 className="card-title text-secondary">GroundNuts Crops</h5>
 
                         <ul className="card-text">
                             <li>Purchasing Inputs</li>
@@ -469,7 +475,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/OIP.mrw2TS1g2J6EltyGKWu2aQHaFj?pid=ImgDet&rs=1" alt="livestock" />
                     <div className="card-body">
-                        <h5 className="card-title">Livestock Management</h5>
+                        <h5 className="card-title text-secondary">Livestock Management</h5>
 
                         <ul className="card-text">
                             <li>Removing Manure </li>
@@ -490,7 +496,7 @@ function ActivityTopper() {
                 
                     <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
                     <div className="card-body">
-                        <h5 className="card-title">Maize Crops</h5>
+                        <h5 className="card-title text-secondary">Maize Crops</h5>
                         <ul className="card-text">
                             <li>Garden Preparation</li>
                             <li>Purchasing Inputs</li>                            
@@ -502,7 +508,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.MS3OZkYdOAEbj-3Lqp1UqgHaD-?pid=ImgDet&rs=1" alt="groundnuts" />
                     <div className="card-body">
-                        <h5 className="card-title">GroundNuts Crops</h5>
+                        <h5 className="card-title text-secondary">GroundNuts Crops</h5>
 
                         <ul className="card-text">
                             <li>Marketing</li>
@@ -515,7 +521,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
                     <div className="card-body">
-                        <h5 className="card-title">Livestock Management</h5>
+                        <h5 className="card-title text-secondary">Livestock Management</h5>
 
                         <ul className="card-text">
                             <li>Selecting Breeding Stock</li>
@@ -539,14 +545,14 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.69f297156189efbf1af249ba077616d7?rik=9PEgUT08kL4VAQ&riu=http%3a%2f%2fwww.ethicalteapartnership.org%2fwp-content%2fuploads%2f2019%2f07%2f9O6A4346-Malawi-Climate-Change.jpg&ehk=plcyZ1yGc5KG6zZUaj%2f5xERNoCCIZfkwsKPj2ZNI8Sk%3d&risl=&pid=ImgRaw&r=0" alt="groundnuts" />
                     <div className="card-body">
-                        <h5 className="card-title">Holiday Time </h5>
+                        <h5 className="card-title text-secondary">Holiday Time </h5>
                     </div>
                 </div>
 
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
                     <div className="card-body">
-                        <h5 className="card-title">Livestock Management</h5>
+                        <h5 className="card-title text-secondary">Livestock Management</h5>
 
                         <ul className="card-text">
                             <li>Selecting Breeding Stock</li>
@@ -566,7 +572,7 @@ function ActivityTopper() {
                 
                     <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
                     <div className="card-body">
-                        <h5 className="card-title">Maize Crops</h5>
+                        <h5 className="card-title text-secondary">Maize Crops</h5>
                         <ul className="card-text">
                             <li>Planting</li>
                             <li>Basal Dressing</li>                            
@@ -578,7 +584,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.fd77afad048cda2907df10a96be0afa1?rik=YJTeF4%2fD7uFaaA&pid=ImgRaw&r=0" alt="groundnuts" />
                     <div className="card-body">
-                        <h5 className="card-title">GroundNuts Crops</h5>
+                        <h5 className="card-title text-secondary">GroundNuts Crops</h5>
 
                         <ul className="card-text">
                             <li>Planting</li>
@@ -591,7 +597,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
                     <div className="card-body">
-                        <h5 className="card-title">Livestock Management</h5>
+                        <h5 className="card-title text-secondary">Livestock Management</h5>
 
                         <ul className="card-text">
                             <li>Selecting Breeding Stock</li>
@@ -610,7 +616,7 @@ function ActivityTopper() {
                 
                     <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
                     <div className="card-body">
-                        <h5 className="card-title">Maize Crops</h5>
+                        <h5 className="card-title text-secondary">Maize Crops</h5>
                         <ul className="card-text">
                             <li>Planting</li>
                             <li>Basal Dressing</li>                            
@@ -623,7 +629,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.fd77afad048cda2907df10a96be0afa1?rik=YJTeF4%2fD7uFaaA&pid=ImgRaw&r=0" alt="groundnuts" />
                     <div className="card-body">
-                        <h5 className="card-title">GroundNuts Crops</h5>
+                        <h5 className="card-title text-secondary">GroundNuts Crops</h5>
 
                         <ul className="card-text">
                             <li>Planting</li>
@@ -636,7 +642,7 @@ function ActivityTopper() {
                 <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
                     <div className="card-body">
-                        <h5 className="card-title">Livestock Management</h5>
+                        <h5 className="card-title text-secondary">Livestock Management</h5>
 
                         <ul className="card-text">
                             <li>Selecting Breeding Stock</li>
@@ -668,20 +674,18 @@ function ActivityTopper() {
             <div className="card-group">
                 <div className="card m-2">
                     <ResponsiveContainer width="100%" height="100%">
-                        <ComposedChart
-                            width={500}
-                            height={400}
-                            data={graphArray}
-                            margin={{
-                                top: 20,
-                                right: 80,
-                                bottom: 20,
-                                left: 20,
-                            }}>
-                            <Line dataKey="temperature" stroke="blue" dot={false} activeDot={false} legendType="none" />
-                            <Line dataKey="redLine" stroke="red" dot={false} activeDot={false} legendType="none" />
-                        </ComposedChart>
-                        
+                        <PieChart width={750} height={750}>
+                            <Pie data={data01} dataKey="value" cx="50%" cy="50%" outerRadius={60} fill="#8884d8">
+                                {data.map((entry, index) => (
+                                    <Cell fill={COLORS[index % COLORS.length]} />
+                                    ))}
+                            </Pie>
+                            <Pie data={data01} dataKey="value" cx="50%" cy="50%" innerRadius={60} outerRadius={90} fill="#82ca9d" label >
+                            {data.map((entry, index) => (
+                                <Cell fill={COLORS[index % COLORS.length]} />
+                                ))}
+                            </Pie>
+                        </PieChart>                        
                     </ResponsiveContainer>
                 </div>
                 {recommend(moment().format('MMMM'))}
@@ -697,9 +701,9 @@ function ActivityTopper() {
                             <Tooltip/>
                             <Legend/>
                             <CartesianGrid stroke="#f5f5f5" />
-                            <Bar dataKey="temperature" barSize={20} fill="#FF5733 " />
-                            <Bar dataKey="humidity" barSize={20} fill="#0040FA" />                            
-                            <Line type="monotone" dataKey="temperature" stroke="#ff7300" />
+                            <Bar dataKey="temperature" barSize={20} fill="#e67e22 " />
+                            <Bar dataKey="humidity" barSize={20} fill="#0984e3" /> 
+                            <Bar dataKey="lightIntensity" barSize={20} fill="#00b894" /> 
                         </ComposedChart>
                         
                     </ResponsiveContainer>

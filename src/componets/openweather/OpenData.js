@@ -93,7 +93,7 @@ export default function OpenData({weatherdata}) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div"  align="center" className="heading">
-            MINI AUTOMATED WEATHER STATION   || <h6> 5 Days Weather Forecast</h6>
+            MINI AUTOMATED WEATHER STATION   ||  5 Days Weather Forecast
           </Typography>
         </Toolbar>
       </AppBar>

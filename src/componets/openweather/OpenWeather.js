@@ -97,8 +97,6 @@ function OpenWeather(){
                 setSixthHum(result.daily[5].humidity);
                 setSixthDayDesc(result.daily[5].weather[0].description);
                 setSixthIcon(result.daily[5].weather[0].icon);
-
-                var newDate = moment(new Date(1645088400 * 1000)).format('dddd');
             })
             .catch(err =>{
             });
