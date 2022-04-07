@@ -6,6 +6,7 @@ import './OpenWeather.css';
 
 function OpenWeather(){
     
+    /* The below code is using the useState hook to set the state of the variables. */
     const [lat, setLat] = useState([]);
     const [long, setLong] = useState([]);
     const [weather, setWeather] = useState();
@@ -45,19 +46,7 @@ function OpenWeather(){
     const [sixthhum, setSixthHum] = useState();
     const [sixthdaydesc, setSixthDayDesc] = useState()
     const [sixthIcon, setSixthIcon] = useState();
-
-    const [sevenTemp, setSevenDayTemp] = useState();
-    const [sevendate, setSevenDate] = useState();
-    const [sevenhum, setSevenHum] = useState();
-    const [sevendaydesc, setSevenDayDesc] = useState()
-    const [sevenIcon, setSevenIcon] = useState();
-
-    const [eightdayTemp, setEightDayTemp] = useState();
-    const [eightdate, setEightDate] = useState();
-    const [eighthum, setEightHum] = useState();
-    const [eightdaydesc, setEightDayDesc] = useState();
-    const [eightIcon, setEightIcon] = useState();
-
+    
     useEffect(() => {
         const fetchData = async () => {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -66,14 +55,13 @@ function OpenWeather(){
         });
 
         //weather forecast
+        /* The below code is fetching the weather data from the API and then setting the data to the
+        state. */
         await fetch(`${process.env.REACT_APP_API_URLw}?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.json())
             .then(result => {
                 //set data to the object
                 setWeather(result.current);
-
-                console.log(result);
-                // setData(result.current.temp);
                 setFistDayTemp(result.daily[0].temp.max);
                 setFristDate(result.daily[0].dt);
                 setFistDayHum(result.daily[0].humidity);
@@ -110,37 +98,12 @@ function OpenWeather(){
                 setSixthDayDesc(result.daily[5].weather[0].description);
                 setSixthIcon(result.daily[5].weather[0].icon);
 
-                setSevenDayTemp(result.daily[6].temp.max);
-                setSevenDate(result.daily[6].dt);
-                setSevenHum(result.daily[6].humidity);
-                setSevenDayDesc(result.daily[6].weather[0].description);
-                setSevenIcon(result.daily[6].weather[0].icon);
-
-                setEightDayTemp(result.daily[7].temp.max);                
-                setEightDate(result.daily[7].dt);
-                setEightHum(result.daily[7].humidity);
-                setEightDayDesc(result.daily[7].weather[0].description);
-                setEightIcon(result.daily[7].weather[0].icon);
-
-                console.log(seconddayTemp);
                 var newDate = moment(new Date(1645088400 * 1000)).format('dddd');
-                console.log(newDate);
-                console.log(moment(new Date(1645088400 * 1000)).format('LL'));
             })
             .catch(err =>{
-                console.log(err);
             });
-
-        // await fetch(`${process.env.REACT_APP_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
-        //     .then(res => res.json())
-        //     .then(result => {
-        //         setData(result);
-                
-        //     })
-        //     .catch(err =>{
-        //         console.log(err);
-        //     });
         }
+        
         fetchData();
         
     },[lat,long])
@@ -187,11 +150,7 @@ function OpenWeather(){
                                 </div>
             
                             </div>
-            
-                       </div>
-            
-                        <div className="card-group">
-        
+
                             <div className="card cardd">
                                 <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(thirddate * 1000)).format('dddd')} |  {moment(new Date(thirddate * 1000)).format('LL')}</p>
                                 <div className="card-body">
@@ -210,6 +169,9 @@ function OpenWeather(){
             
                             </div>
             
+                       </div>
+            
+                        <div className="card-group">            
                             <div className="card cardd">
                                 <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(fourthdate * 1000)).format('dddd')} |  {moment(new Date(fourthdate * 1000)).format('LL')}</p>
                                 <div className="card-body">
@@ -242,10 +204,6 @@ function OpenWeather(){
                                     <p className="titlep">{fifthdaydesc}</p>
                                 </div>
                             </div>
-                        </div>
-            
-                        <div className="card-group">
-                                   
                             <div className="card cardd">
                                 <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(sixthdate * 1000)).format('dddd')} |  {moment(new Date(sixthdate * 1000)).format('LL')}</p>
                                 <div className="card-body">
@@ -262,43 +220,7 @@ function OpenWeather(){
                                     <p className="titlep">{sixthdaydesc}</p>
                                 </div>
                             </div>
-            
-                            <div className="card cardd">
-                                <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(sevendate * 1000)).format('dddd')} |  {moment(new Date(sevendate * 1000)).format('LL')}</p>
-                                <div className="card-body">
-                                    <span>
-                                        <i className="d-inline p-2 header">Temperature: </i>
-                                        <p className="d-inline p-2 val">{sevenTemp}<sup>&deg;</sup>C </p>
-                                    </span>
-                                        <div>
-                                            <p className="d-inline p-2 header">Humidity: </p>
-                                            <p className="d-inline p-2 val">{sevenhum}% </p>
-                                        </div>
-                                
-                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${sevenIcon}.png`}  alt="weather-icon"/></div>
-                                    <p className="titlep">{sevendaydesc}</p>
-                                </div>
-                            </div>
-            
-                            <div className="card cardd">
-                                <p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(eightdate * 1000)).format('dddd')} |  {moment(new Date(eightdate * 1000)).format('LL')}</p>
-                                <div className="card-body">
-                                    <span>
-                                        <i className="d-inline p-2 header">Temperature: </i>
-                                        <p className="d-inline p-2 val">{eightdayTemp}<sup>&deg;</sup>C </p>
-                                    </span>
-                                        <div>
-                                            <p className="d-inline p-2 header">Humidity: </p>
-                                            <p className="d-inline p-2 val">{eighthum}% </p>
-                                        </div>
-                                
-                                    <div class="d-inline p-2 text-white"> <img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${eightIcon}.png`}  alt="weather-icon"/></div>
-                                    <p className="titlep">{eightdaydesc}</p>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
+                        </div>                       
                         
                     </div>
                 ):(

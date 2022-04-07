@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import moment from 'moment';
 import Iframe from 'react-iframe';
-import {ComposedChart,Line,Area,PieChart, Bar, Pie,XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {ComposedChart,Line,Area, Bar,Scatter,  PieChart, Pie, Sector, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 
 function ActivityTopper() {
@@ -14,6 +14,7 @@ function ActivityTopper() {
     const [humiditydata, setHumidity] = useState([]);
     const [lightdata, setLight] = useState([]);
     const [data, setData] = useState([]);
+    const [graph, setGraph] = useState([]);
 
     //fetching data for reccommendations
     useEffect(() => {
@@ -57,6 +58,7 @@ function ActivityTopper() {
                 .then(items => items.json())
                 .then(results => {
                     setData(results.feeds)
+                  
                 })
                 .catch(err => { })
         }
@@ -69,8 +71,25 @@ function ActivityTopper() {
         lightData();
 
     }, [])
-    console.log(data)
     //elimating null variables and give it to new array
+    let graphArray = [];
+    //graph data object
+    
+    let data_object = {}
+    for(let item of data){
+
+        if(item.field1 !== null){
+            data_object.temperature= item.field1;
+            data_object.time =item.created_at;
+            graphArray.push(data_object)
+        }
+        if(item.field2 !== null){
+            data_object.humidity= item.field2;
+            graphArray.push(data_object)
+        }
+               
+    }
+
     let rainArray = []
     for (let item of recorain) {
         if (item.field3 !== null) {
@@ -117,7 +136,8 @@ function ActivityTopper() {
     const averageTemp = averageCount(tempArray);
     const averageHum = averageCount(humArray);
     const averageLigh = averageCount(lightArray);
-
+    
+    
     //recommedation conditions
     function recommend(monthly) {
         if (monthly === "January" && averageRain > 0) {
@@ -243,7 +263,7 @@ function ActivityTopper() {
         else if (monthly === "April" || averageRain < 1) {
             return (
                 <>
-                    <div className="card m-1">
+                    <div className="card   border-radius-rounded m-3 p-1">
                         <img className="card-img-top" src=" https://th.bing.com/th/id/OIP.fNkMI09qUhsi-4JTnqLt7gHaFj?pid=ImgDet&rs=1" />
                         <div className="card-body">
                             <h5 className="card-title">Maize Crops</h5>
@@ -255,7 +275,7 @@ function ActivityTopper() {
                         </div>
                     </div>
 
-                    <div className="card m-1">
+                    <div className="card   border-radius-rounded m-3 p-1">
                         <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.GOONna1dC98OIg1mpXWmJQHaEK?pid=ImgDet&rs=1" alt="tomato" />
                         <div className="card-body">
                             <h5 className="card-title">GroundNuts Crops</h5>
@@ -269,7 +289,7 @@ function ActivityTopper() {
                         </div>
                     </div>
 
-                    <div className="card m-1">
+                    <div className="card   border-radius-rounded m-3 p-1">
                         <img className="card-img-top" src="https://neweralive.na/storage/uploads/2020/11/Farmers1.jpg" alt="livestock" />
                         <div className="card-body">
                             <h5 className="card-title">Livestock Management</h5>
@@ -378,7 +398,7 @@ function ActivityTopper() {
         else if(monthly === "July" && averageRain >0){
             return(
                 <>
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src=" https://th.bing.com/th/id/OIP.fNkMI09qUhsi-4JTnqLt7gHaFj?pid=ImgDet&rs=1" />
                     <div className="card-body">
                         <h5 className="card-title">Maize Crops</h5>
@@ -390,7 +410,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.GOONna1dC98OIg1mpXWmJQHaEK?pid=ImgDet&rs=1" alt="tomato" />
                     <div className="card-body">
                         <h5 className="card-title">GroundNuts Crops</h5>
@@ -401,7 +421,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://neweralive.na/storage/uploads/2020/11/Farmers1.jpg" alt="livestock" />
                     <div className="card-body">
                         <h5 className="card-title">Livestock Management</h5>
@@ -420,7 +440,7 @@ function ActivityTopper() {
         else if (monthly ==="August" && averageRain > 0){
             return(
                 <>
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                 
                     <img className="card-img-top" src=" https://th.bing.com/th/id/R.43acaac7b525cfdb69915da9bc12f14f?rik=UJAb2gqEKD8TfQ&pid=ImgRaw&r=0" />
                     <div className="card-body">
@@ -433,7 +453,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.SqXq9zBdkhCvt3W4qD3VPwHaFS?pid=ImgDet&rs=1" alt="groundnuts" />
                     <div className="card-body">
                         <h5 className="card-title">GroundNuts Crops</h5>
@@ -446,7 +466,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/OIP.mrw2TS1g2J6EltyGKWu2aQHaFj?pid=ImgDet&rs=1" alt="livestock" />
                     <div className="card-body">
                         <h5 className="card-title">Livestock Management</h5>
@@ -466,7 +486,7 @@ function ActivityTopper() {
         else if (monthly === "September" && averageRain > 0){
             return(
                 <>
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                 
                     <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
                     <div className="card-body">
@@ -479,7 +499,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/OIP.MS3OZkYdOAEbj-3Lqp1UqgHaD-?pid=ImgDet&rs=1" alt="groundnuts" />
                     <div className="card-body">
                         <h5 className="card-title">GroundNuts Crops</h5>
@@ -492,7 +512,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
                     <div className="card-body">
                         <h5 className="card-title">Livestock Management</h5>
@@ -510,20 +530,20 @@ function ActivityTopper() {
         else if (monthly === "October"  && averageRain >0){
             return( 
                 <>
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                 
                     <img className="card-img-top" src="https://www.determinedtodevelop.org/wp-content/uploads/2019/10/Malawi-charity.jpg" />
                    
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.69f297156189efbf1af249ba077616d7?rik=9PEgUT08kL4VAQ&riu=http%3a%2f%2fwww.ethicalteapartnership.org%2fwp-content%2fuploads%2f2019%2f07%2f9O6A4346-Malawi-Climate-Change.jpg&ehk=plcyZ1yGc5KG6zZUaj%2f5xERNoCCIZfkwsKPj2ZNI8Sk%3d&risl=&pid=ImgRaw&r=0" alt="groundnuts" />
                     <div className="card-body">
                         <h5 className="card-title">Holiday Time </h5>
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
                     <div className="card-body">
                         <h5 className="card-title">Livestock Management</h5>
@@ -542,7 +562,7 @@ function ActivityTopper() {
         else if (monthly === "November" && averageRain < 1){
             return(
                 <>
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                 
                     <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
                     <div className="card-body">
@@ -555,7 +575,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.fd77afad048cda2907df10a96be0afa1?rik=YJTeF4%2fD7uFaaA&pid=ImgRaw&r=0" alt="groundnuts" />
                     <div className="card-body">
                         <h5 className="card-title">GroundNuts Crops</h5>
@@ -568,7 +588,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
                     <div className="card-body">
                         <h5 className="card-title">Livestock Management</h5>
@@ -586,7 +606,7 @@ function ActivityTopper() {
         else if (monthly ==="December" && averageRain < 1){
             return(
                 <>
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                 
                     <img className="card-img-top" src="https://gardening-abc.com/wp-content/uploads/2015/03/how-to-use-manure-1024x828.jpg" />
                     <div className="card-body">
@@ -600,7 +620,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" height={50} src="https://th.bing.com/th/id/R.fd77afad048cda2907df10a96be0afa1?rik=YJTeF4%2fD7uFaaA&pid=ImgRaw&r=0" alt="groundnuts" />
                     <div className="card-body">
                         <h5 className="card-title">GroundNuts Crops</h5>
@@ -613,7 +633,7 @@ function ActivityTopper() {
                     </div>
                 </div>
 
-                <div className="card m-1">
+                <div className="card   border-radius-rounded m-3 p-1">
                     <img className="card-img-top" src="https://th.bing.com/th/id/R.34b420fe7507030f28203670e60a1425?rik=SPeVH7ZyWEdeZQ&pid=ImgRaw&r=0" alt="livestock" />
                     <div className="card-body">
                         <h5 className="card-title">Livestock Management</h5>
@@ -641,36 +661,59 @@ function ActivityTopper() {
         }
         
     }
-
+   
     return (
         <div>
             <h4 className="card-header bg-primary text-white text-center">Recommend Farming Activities</h4>
             <div className="card-group">
                 <div className="card m-2">
                     <ResponsiveContainer width="100%" height="100%">
-                        <ComposedChart width={650} height={450} data={data}>
-                            
-                            <YAxis/>
-                            <Tooltip/>
-                            <Legend/>
+                        <ComposedChart
+                            width={500}
+                            height={400}
+                            data={graphArray}
+                            margin={{
+                                top: 20,
+                                right: 80,
+                                bottom: 20,
+                                left: 20,
+                            }}
+                            >
                             <CartesianGrid stroke="#f5f5f5" />
-                            <Bar dataKey="field1" barSize={20} fill="#FF5733 " />
-                            <Area type="monotone" dataKey="field3" fill="#8884d8" stroke="#8884d8" />
-                            <Bar dataKey="field2" barSize={20} fill="#0040FA" />
-                            
+                            <Tooltip />,
+                            <Legend />
+
+                            <XAxis dataKey="temperature"  label={{ value: 'Temperature', position: 'insideBottomRight', offset: 0 }} />
+                            <YAxis label={{ value: 'Humidity', angle: -90, position: 'insideLeft' }} />
+                            <Legend onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave} />
+                            <Line dataKey="temperature" stroke="blue" dot={false} activeDot={false} legendType="none" />
+                            <Line dataKey="redLine" stroke="red" dot={false} activeDot={false} legendType="none" />
                         </ComposedChart>
+                        
                     </ResponsiveContainer>
                 </div>
                 {recommend(moment().format('MMMM'))}
             </div>
-
+            
             <div className='card-group mt-3'>
 
-                <div className='card border-primary border-radius-rounded p-2'>
-                    
+                <div className='card  border-radius-rounded p-2'>
+                    <ResponsiveContainer width="100%" height="100%">
+                        <ComposedChart width={650} height={450} data={graphArray}>
+                            <YAxis/>
+                            <XAxis dataKey="time"/>
+                            <Tooltip/>
+                            <Legend/>
+                            <CartesianGrid stroke="#f5f5f5" />
+                            <Bar dataKey="temperature" barSize={20} fill="#FF5733 " />
+                            <Bar dataKey="humidity" barSize={20} fill="#0040FA" />                            
+                            <Line type="monotone" dataKey="temperature" stroke="#ff7300" />
+                        </ComposedChart>
+                        
+                    </ResponsiveContainer>
                 </div>
 
-                <div className='card border-primary border-radius-rounded p-2'>
+                <div className='card  border-radius-rounded p-2'>
                     <table class="table table-hover ">
                         <thead className="thead bg-primary text-white">
                             <tr>
@@ -699,6 +742,7 @@ function ActivityTopper() {
                                 <td>{Math.min(...humArray)} g/m<sup>3</sup></td>
                                 <td>{Math.min(...lightArray)} candela</td>
                             </tr>
+                            
                         </tbody>
                     </table>
                 </div>
