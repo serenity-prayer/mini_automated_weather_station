@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: componets/historycharts/HistroyCharts.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: componets/historycharts/HistroyCharts.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * App Module
+ * @module ../historycharts.js
+ * @author Steven Kamwaza &amp;&amp; Maxwell Mpinganjira
+ * @version 1.0
+ * @description A min auto weather station dashboard history charts
+ * 
+ */
+
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Iframe from 'react-iframe';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
+function HistoryCharts() {
+    /**
+     * @constant {string} TEMP_DATA
+     */
+    const TEMP_DATA ='https://api.thingspeak.com/channels/1635256/fields/1.json?api_key=K1BT6Y77BEFGSQSB&amp;start=2022-02-20%2022:02:20';
+
+    const height = 400;
+    const width = 300;
+
+    /**
+     * @constant {Array.&lt;string>} data
+     */
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        //weather forecast
+
+        /**
+         * @param {TEMP_DATA} TEMP_DATA
+         * @returns data
+         */
+        fetch(TEMP_DATA)
+            .then(res => res.json())
+            .then(result => {
+                //set data to the object
+                setData(result.feeds);
+;
+            })
+            .catch(err =>{
+                console.log(err);
+            });
+        
+    },[]);
+     
+    return(
+                    
+        &lt;div className=" m ml-3 pl-3">
+            &lt;div>TEMPERATURE&lt;/div>
+              &lt;div className='col border-radius-rounded'>
+                    &lt;Iframe
+                        url='https://api.thingspeak.com/channels/1635256/charts/1?start=2022-01-01%2000:00:00&amp;color=4169e1&amp;dynamic=true&amp;title=TEMPERATURE%20&amp;type=spline&amp;xaxis=Time&amp;yaxis=&amp;height=350&amp;width=1650'
+                        width='1650'
+                        height='350'
+                        display="initial"
+                      position="relative"
+                      sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                &lt;/div>
+                &lt;div className='col border-radius-rounded'>
+                    &lt;Iframe
+                        url='https://api.thingspeak.com/channels/1635256/charts/2?start=2022-01-01%2000:00:00&amp;color=4169e1&amp;dynamic=true&amp;title=HUMIDITY%20&amp;type=spline&amp;xaxis=Time&amp;yaxis=&amp;height=350&amp;width=1650'
+                        width='1650'
+                        height='350'
+                        display="initial"
+                        position="relative"
+                        sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                &lt;/div>
+                &lt;div className='col border-radius-rounded'>
+                    &lt;Iframe
+                        url='https://api.thingspeak.com/channels/1635256/charts/3?start=2022-03-25%2000:00:00&amp;color=4169e1&amp;dynamic=true&amp;title=RAINFALL%20&amp;type=spline&amp;xaxis=Time&amp;yaxis=&amp;height=350&amp;width=1650'
+                        width='1650'
+                        height='350'
+                        display="initial"
+                      position="relative"
+                      sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                        &lt;/div>
+                        &lt;div className='col border-radius-rounded'>
+                    &lt;Iframe
+                        url='https://api.thingspeak.com/channels/1635256/charts/4?start=2022-01-01%2000:00:00&amp;color=4169e1&amp;dynamic=true&amp;title=LIGHT-INTENSITY%20&amp;type=spline&amp;xaxis=Time&amp;yaxis=&amp;height=350&amp;width=1650'
+                        width='1650'
+                        height='350'
+                        display="initial"
+                        position="relative"
+                        sandbox='allow-pointer-lock allow-forms allow-popups allow-same-origin allow-scripts'/>
+                        &lt;/div> 
+        &lt;/div>
+    )
+}
+
+export default HistoryCharts;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="-_Onload.module_js.html">js</a></li><li><a href="App.module_js.html">js</a></li><li><a href="._historycharts.module_js.html">js</a></li><li><a href="-_OpenWeather.module_js.html">js</a></li></ul><h3>Global</h3><ul><li><a href="global.html#app">app</a></li><li><a href="global.html#averageHum">averageHum</a></li><li><a href="global.html#averageLigh">averageLigh</a></li><li><a href="global.html#averageTemp">averageTemp</a></li><li><a href="global.html#COLORS">COLORS</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#data01">data01</a></li><li><a href="global.html#firebase">firebase</a></li><li><a href="global.html#firebaseConfig">firebaseConfig</a></li><li><a href="global.html#humiditydata">humiditydata</a></li><li><a href="global.html#lightdata">lightdata</a></li><li><a href="global.html#recorain">recorain</a></li><li><a href="global.html#recotemp">recotemp</a></li><li><a href="global.html#rootElement">rootElement</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue Apr 12 2022 20:22:43 GMT+0200 (Central Africa Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,3 +1,12 @@
+/**
+ * App Module
+ * @module ../home/Charts.js
+ * @author Steven Kamwaza && Maxwell Mpinganjira
+ * @version 1.0
+ * @description A min auto weather station live graphs dashboard
+ * 
+ */
+
 import React from 'react';
 import Iframe from 'react-iframe';
 import "bootstrap/dist/css/bootstrap.min.css";

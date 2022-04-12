@@ -1,3 +1,12 @@
+/**
+ * App Module
+ * @module ./OpenWeather.js
+ * @author Steven Kamwaza && Maxwell Mpinganjira
+ * @version 1.6
+ * @description Weather Prediction Component| new change include css customerzation, responsiveness
+ * 
+ */
+
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Onload from "./load/Onload";
@@ -7,10 +16,20 @@ import './OpenWeather.css';
 function OpenWeather(){
     
     /* The below code is using the useState hook to set the state of the variables. */
+    /**
+     * @constant {string} lat
+     */
     const [lat, setLat] = useState([]);
+     /**
+     * @constant {string} long
+     */
     const [long, setLong] = useState([]);
-    const [weather, setWeather] = useState();
 
+     /**
+     * @constant {string} weather
+     */
+    const [weather, setWeather] = useState();
+    
     const [firstdayTemp, setFistDayTemp] = useState();
     const [firstdayIcon, setFistDayIcon] = useState();
     const [firstdate, setFristDate] = useState();
@@ -57,6 +76,7 @@ function OpenWeather(){
         //weather forecast
         /* The below code is fetching the weather data from the API and then setting the data to the
         state. */
+
         await fetch(`${process.env.REACT_APP_API_URLw}?lat=${lat}&lon=${long}&units=metric&APPID=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.json())
             .then(result => {

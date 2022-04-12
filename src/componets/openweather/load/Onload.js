@@ -1,3 +1,11 @@
+/**
+ * App Module
+ * @module /Onload.js
+ * @version 1.0
+ * @description A load Animation component 
+ * 
+ */
+
 import React from 'react'
 import "bootstrap/dist/css/bootstrap.min.css";
 import {Oval } from "react-loader-spinner";

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: componets/openweather/OpenWeather.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: componets/openweather/OpenWeather.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * App Module
+ * @module ./OpenWeather.js
+ * @author Steven Kamwaza &amp;&amp; Maxwell Mpinganjira
+ * @version 1.6
+ * @description Weather Prediction Component| new change include css customerzation, responsiveness
+ * 
+ */
+
+import React, { useEffect, useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Onload from "./load/Onload";
+import moment from "moment";
+import './OpenWeather.css';
+
+function OpenWeather(){
+    
+    /* The below code is using the useState hook to set the state of the variables. */
+    /**
+     * @constant {string} lat
+     */
+    const [lat, setLat] = useState([]);
+     /**
+     * @constant {string} long
+     */
+    const [long, setLong] = useState([]);
+
+     /**
+     * @constant {string} weather
+     */
+    const [weather, setWeather] = useState();
+    
+    const [firstdayTemp, setFistDayTemp] = useState();
+    const [firstdayIcon, setFistDayIcon] = useState();
+    const [firstdate, setFristDate] = useState();
+    const [fisthum, setFistDayHum] = useState();
+    const [firstdaydesc, setFistDayDesc] = useState();
+
+    const [seconddayTemp, setSecondDayTemp] = useState();
+    const [seconddate, setSecondDate] = useState();
+    const [secondhum, setSecondDayHum] = useState();
+    const [seconddaydesc, setSecondDayDesc] = useState();
+    const [secondIcon, setSecondIcon] = useState();
+
+    const [thirddayTemp,  setThirdDayTemp] = useState();
+    const [thirddate, setThirdDate] = useState();
+    const [thirdhum, setThirdDayHum] = useState();
+    const [thirddaydesc, setThirdDayDesc] = useState();
+    const [thirdIcon, setThirdIcon] = useState();
+
+    const [fourthdayTemp, setFourthDayTemp] = useState();
+    const [fourthdate, setFourthDate] = useState();
+    const [fourthhum, setFourthDayHum] = useState();
+    const [fourthdaydesc, setFourthDayDesc] = useState();
+    const [fourthIcon, setFourthIcon] = useState();
+
+    const [fifthdayTemp,  setFifthDayTemp] = useState();
+    const [fifthdate, setFifthDate] = useState();
+    const [fifthhum, setFifthHum] = useState();
+    const [fifthdaydesc, setFifthDayDesc] = useState();
+    const [fifthIcon, setFifthIcon] = useState();
+
+    const [sixthdayTemp, setSixthDayTemp] = useState();
+    const [sixthdate, setSixthDate] = useState();
+    const [sixthhum, setSixthHum] = useState();
+    const [sixthdaydesc, setSixthDayDesc] = useState()
+    const [sixthIcon, setSixthIcon] = useState();
+    
+    useEffect(() => {
+        const fetchData = async () => {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            setLat(position.coords.latitude);
+            setLong(position.coords.longitude);
+        });
+
+        //weather forecast
+        /* The below code is fetching the weather data from the API and then setting the data to the
+        state. */
+
+        await fetch(`${process.env.REACT_APP_API_URLw}?lat=${lat}&amp;lon=${long}&amp;units=metric&amp;APPID=${process.env.REACT_APP_API_KEY}`)
+            .then(res => res.json())
+            .then(result => {
+                //set data to the object
+                setWeather(result.current);
+                setFistDayTemp(result.daily[0].temp.max);
+                setFristDate(result.daily[0].dt);
+                setFistDayHum(result.daily[0].humidity);
+                setFistDayDesc(result.daily[0].weather[0].description);
+                setFistDayIcon(result.daily[0].weather[0].icon);
+
+                setSecondDayTemp(result.daily[1].temp.max);
+                setSecondDate(result.daily[1].dt);
+                setSecondDayHum(result.daily[1].humidity);
+                setSecondDayDesc(result.daily[1].weather[0].description);
+                setSecondIcon(result.daily[1].weather[0].icon);
+
+                setThirdDayTemp(result.daily[2].temp.max);
+                setThirdDate(result.daily[2].dt);
+                setThirdDayHum(result.daily[2].humidity);
+                setThirdDayDesc(result.daily[2].weather[0].description);
+                setThirdIcon(result.daily[2].weather[0].icon);
+
+                setFourthDayTemp(result.daily[3].temp.max);
+                setFourthDate(result.daily[3].dt);
+                setFourthDayHum(result.daily[3].humidity);
+                setFourthDayDesc(result.daily[3].weather[0].description);
+                setFourthIcon(result.daily[3].weather[0].icon);
+
+                setFifthDayTemp(result.daily[4].temp.max);
+                setFifthDate(result.daily[4].dt);
+                setFifthHum(result.daily[4].humidity);
+                setFifthDayDesc(result.daily[4].weather[0].description);
+                setFifthIcon(result.daily[4].weather[0].icon);
+
+                setSixthDayTemp(result.daily[5].temp.max);
+                setSixthDate(result.daily[5].dt);
+                setSixthHum(result.daily[5].humidity);
+                setSixthDayDesc(result.daily[5].weather[0].description);
+                setSixthIcon(result.daily[5].weather[0].icon);
+            })
+            .catch(err =>{
+            });
+        }
+        
+        fetchData();
+        
+    },[lat,long])
+
+
+    return(
+        &lt;div>
+            {(typeof weather !='undefined')? 
+                (
+                    &lt;div>
+                        
+                       &lt;div className="card-group">
+                            &lt;div className="card cardd">
+                                &lt;p className="card-header card-titled bg-primary text-white text-justify text-center">Today |  {moment(new Date(firstdate * 1000)).format('LL')}&lt;/p>
+                                &lt;div className="card-body">
+                                    &lt;span>
+                                        &lt;i className="d-inline p-2 header">Temperature:&lt;/i>
+                                        &lt;p className="d-inline p-2 val">{firstdayTemp}&lt;sup>&amp;deg;&lt;/sup>C &lt;/p>
+                                    &lt;/span>
+                                        &lt;div>
+                                            &lt;p className="d-inline p-2 header">Humidity: &lt;/p>
+                                            &lt;p className="d-inline p-2 val">{fisthum}% &lt;/p>
+                                        &lt;/div>
+                                
+                                    &lt;div class="d-inline p-2 text-white"> &lt;img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${firstdayIcon}.png`}  alt="weather-icon"/>&lt;/div>
+                                    &lt;p className="titlep">{firstdaydesc}&lt;/p>
+                                &lt;/div>
+            
+                            &lt;/div>
+                            &lt;div className="card cardd">
+                                &lt;p className="card-header card-titled bg-primary text-white text-justify text-center">Tommorrow ( {moment(new Date(seconddate * 1000)).format('dddd')} ) |  {moment(new Date(seconddate * 1000)).format('LL')}&lt;/p>
+                                &lt;div className="card-body">
+                                    &lt;span>
+                                        &lt;i className="d-inline p-2 header">Temperature:&lt;/i>
+                                        &lt;p className="d-inline p-2 val">{seconddayTemp}&lt;sup>&amp;deg;&lt;/sup>C &lt;/p>
+                                    &lt;/span>
+                                        &lt;div>
+                                            &lt;p className="d-inline p-2 header">Humidity: &lt;/p>
+                                            &lt;p className="d-inline p-2 val">{secondhum}% &lt;/p>
+                                        &lt;/div>
+                                
+                                    &lt;div class="d-inline p-2 text-white"> &lt;img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${secondIcon}.png`}  alt="weather-icon"/>&lt;/div>
+                                    &lt;p className="titlep">{seconddaydesc}&lt;/p>
+                                &lt;/div>
+            
+                            &lt;/div>
+
+                            &lt;div className="card cardd">
+                                &lt;p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(thirddate * 1000)).format('dddd')} |  {moment(new Date(thirddate * 1000)).format('LL')}&lt;/p>
+                                &lt;div className="card-body">
+                                    &lt;span>
+                                        &lt;i className="d-inline p-2 header">Temperature: &lt;/i>
+                                        &lt;p className="d-inline p-2 val">{thirddayTemp}&lt;sup>&amp;deg;&lt;/sup>C &lt;/p>
+                                    &lt;/span>
+                                        &lt;div>
+                                            &lt;p className="d-inline p-2 header">Humidity:  &lt;/p>
+                                            &lt;p className="d-inline p-2 val">{thirdhum}% &lt;/p>
+                                        &lt;/div>
+                                
+                                    &lt;div class="d-inline p-2 text-white"> &lt;img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${thirdIcon}.png`}  alt="weather-icon"/>&lt;/div>
+                                    &lt;p className="titlep">{thirddaydesc}&lt;/p>
+                                &lt;/div>
+            
+                            &lt;/div>
+            
+                       &lt;/div>
+            
+                        &lt;div className="card-group">            
+                            &lt;div className="card cardd">
+                                &lt;p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(fourthdate * 1000)).format('dddd')} |  {moment(new Date(fourthdate * 1000)).format('LL')}&lt;/p>
+                                &lt;div className="card-body">
+                                    &lt;span>
+                                        &lt;i className="d-inline p-2 header">Temperature: &lt;/i>
+                                        &lt;p className="d-inline p-2 val">{fourthdayTemp}&lt;sup>&amp;deg;&lt;/sup>C &lt;/p>
+                                    &lt;/span>
+                                        &lt;div>
+                                            &lt;p className="d-inline p-2 header">Humidity: &lt;/p>
+                                            &lt;p className="d-inline p-2 val">{fourthhum}% &lt;/p>
+                                        &lt;/div>
+                                
+                                    &lt;div class="d-inline p-2 text-white"> &lt;img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${fourthIcon}.png`}  alt="weather-icon"/>&lt;/div>
+                                    &lt;p className="titlep">{fourthdaydesc}&lt;/p>
+                                &lt;/div>
+                            &lt;/div>
+                            &lt;div className="card cardd">
+                                &lt;p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(fifthdate * 1000)).format('dddd')} |  {moment(new Date(fifthdate * 1000)).format('LL')}&lt;/p>
+                                &lt;div className="card-body">
+                                    &lt;span>
+                                        &lt;i className="d-inline p-2 header">Temperature: &lt;/i>
+                                        &lt;p className="d-inline p-2 val">{fifthdayTemp}&lt;sup>&amp;deg;&lt;/sup>C &lt;/p>
+                                    &lt;/span>
+                                        &lt;div>
+                                            &lt;p className="d-inline p-2 header">Humidity: &lt;/p>
+                                            &lt;p className="d-inline p-2 val">{fifthhum}% &lt;/p>
+                                        &lt;/div>
+                                
+                                    &lt;div class="d-inline p-2 text-white"> &lt;img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${fifthIcon}.png`}  alt="weather-icon"/>&lt;/div>
+                                    &lt;p className="titlep">{fifthdaydesc}&lt;/p>
+                                &lt;/div>
+                            &lt;/div>
+                            &lt;div className="card cardd">
+                                &lt;p className="card-header card-titled bg-primary text-white text-justify text-center">{moment(new Date(sixthdate * 1000)).format('dddd')} |  {moment(new Date(sixthdate * 1000)).format('LL')}&lt;/p>
+                                &lt;div className="card-body">
+                                    &lt;span>
+                                        &lt;i className="d-inline p-2 header">Temperature: &lt;/i>
+                                        &lt;p className="d-inline p-2 val">{sixthdayTemp}&lt;sup>&amp;deg;&lt;/sup>C &lt;/p>
+                                    &lt;/span>
+                                        &lt;div>
+                                            &lt;p className="d-inline p-2 header">Humidity: &lt;/p>
+                                            &lt;p className="d-inline p-2 val">{sixthhum}% &lt;/p>
+                                        &lt;/div>
+                                
+                                    &lt;div class="d-inline p-2 text-white"> &lt;img className="" height={30} width={100} src= {`https://openweathermap.org/img/wn/${sixthIcon}.png`}  alt="weather-icon"/>&lt;/div>
+                                    &lt;p className="titlep">{sixthdaydesc}&lt;/p>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>                       
+                        
+                    &lt;/div>
+                ):(
+
+                    &lt;div className="card">
+                        &lt;Onload/>
+                    &lt;/div>
+                )
+            }
+        &lt;/div>
+    );
+}
+export default OpenWeather;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="-_Onload.module_js.html">js</a></li><li><a href="App.module_js.html">js</a></li><li><a href="._historycharts.module_js.html">js</a></li><li><a href="-_OpenWeather.module_js.html">js</a></li></ul><h3>Global</h3><ul><li><a href="global.html#app">app</a></li><li><a href="global.html#averageHum">averageHum</a></li><li><a href="global.html#averageLigh">averageLigh</a></li><li><a href="global.html#averageTemp">averageTemp</a></li><li><a href="global.html#COLORS">COLORS</a></li><li><a href="global.html#data">data</a></li><li><a href="global.html#data01">data01</a></li><li><a href="global.html#firebase">firebase</a></li><li><a href="global.html#firebaseConfig">firebaseConfig</a></li><li><a href="global.html#humiditydata">humiditydata</a></li><li><a href="global.html#lightdata">lightdata</a></li><li><a href="global.html#recorain">recorain</a></li><li><a href="global.html#recotemp">recotemp</a></li><li><a href="global.html#rootElement">rootElement</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Tue Apr 12 2022 20:22:43 GMT+0200 (Central Africa Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

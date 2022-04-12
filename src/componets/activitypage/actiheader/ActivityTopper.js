@@ -1,23 +1,42 @@
 // this componets is for recommendations and side graph on analytics componets
 
+
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import moment from 'moment';
 import Iframe from 'react-iframe';
 import {ComposedChart,Line,Area, Bar,Scatter,  PieChart, Pie, Sector, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-
 function ActivityTopper() {
-
+     /**
+     * @constant {Array.<string>} recorain
+     */
     const [recorain, setRain] = useState([]);
+     /**
+     * @constant {Array.<string>}  recotemp
+     */
     const [recotemp, setRecoData] = useState([]);
+    /**
+     * @constant {Array.<string>}  humiditydata
+     */
     const [humiditydata, setHumidity] = useState([]);
+    /**
+     * @constant {Array.<string>}  lightdata
+     */
     const [lightdata, setLight] = useState([]);
+    /**
+     * @constant {Array.<object>}  data
+     * array of objects
+     */
     const [data, setData] = useState([]);
-    const [graph, setGraph] = useState([]);
 
     //fetching data for reccommendations
+    /**
+     * @param {Array} useEffect
+     */
     useEffect(() => {
+
+        
         function rainData() {
             fetch('https://api.thingspeak.com/channels/1635256/fields/3.json?api_key=K1BT6Y77BEFGSQSB&&average=monthly')
                 .then(items => items.json())
@@ -72,9 +91,15 @@ function ActivityTopper() {
 
     }, [])
     //elimating null variables and give it to new array
+    /**
+     * @type {Array.<data>}
+     */
     let graphArray = [];
     //graph data object
     
+    /**
+     * @num {Array.<data_object>} 
+     */
     let data_object = {}
     for(let item of data){
 
@@ -121,6 +146,11 @@ function ActivityTopper() {
         }
     }
     // function average
+    /**
+     * 
+     * @param {*} arr 
+     * @returns sum
+     */
     function averageCount(arr) {
         var sum = 0;
         // Iterate the elements of the array
@@ -132,19 +162,44 @@ function ActivityTopper() {
     }
 
     /* Calculating the average of the rain, temp, hum and light arrays. */
+    /** 
+     * @const {number} averageTemp
+    */
     const averageRain = averageCount(rainArray);
+    /** 
+     * @const {number} averageTemp
+    */
     const averageTemp = averageCount(tempArray);
+    /** 
+     * @const {number} averageHum
+    */
     const averageHum = averageCount(humArray);
+    /** 
+     * @const {number} averageLigh
+    */
     const averageLigh = averageCount(lightArray);
     
+    /**
+     * @constant {object} data01
+     */
     const data01 = [
         { name: 'Temperature', value: Math.round(averageTemp) },
         { name: 'Humdity', value: Math.round(averageHum) },
         { name: 'Light Intensity', value: Math.round(averageLigh) }
       ];
+    
+    /**
+     * @constant {Array.<COLORS>} COLORS array of colors
+     */
     const COLORS = ['#e67e22', '#0984e3', '#00b894', '#0088FE'];
 
-    //recommedation conditions   
+    //recommedation conditions  
+    
+    /**
+     * 
+     * @param {*} monthly 
+     * @returns {object}vrecommedation
+     */ 
     function recommend(monthly) {
         if (monthly === "January" && averageRain > 0) {
             return (

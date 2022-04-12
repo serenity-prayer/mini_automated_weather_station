@@ -1,25 +1,44 @@
+/**
+ * App Module
+ * @module ../historycharts.js
+ * @author Steven Kamwaza && Maxwell Mpinganjira
+ * @version 1.0
+ * @description A min auto weather station dashboard history charts
+ * 
+ */
+
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Iframe from 'react-iframe';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 function HistoryCharts() {
+    /**
+     * @constant {string} TEMP_DATA
+     */
     const TEMP_DATA ='https://api.thingspeak.com/channels/1635256/fields/1.json?api_key=K1BT6Y77BEFGSQSB&start=2022-02-20%2022:02:20';
 
     const height = 400;
     const width = 300;
 
+    /**
+     * @constant {Array.<string>} data
+     */
     const [data, setData] = useState([]);
 
     useEffect(() => {
         //weather forecast
+
+        /**
+         * @param {TEMP_DATA} TEMP_DATA
+         * @returns data
+         */
         fetch(TEMP_DATA)
             .then(res => res.json())
             .then(result => {
                 //set data to the object
                 setData(result.feeds);
-
-                console.log(data.feeds);
+;
             })
             .catch(err =>{
                 console.log(err);

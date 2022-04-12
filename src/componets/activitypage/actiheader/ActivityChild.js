@@ -4,7 +4,6 @@ import {firebase} from './Firebase.js';
 import { getDatabase, ref, push, set } from "firebase/database";
 import {onValue } from "firebase/database";
 import Iframe from 'react-iframe';
-import Firetable from './Table';
 import "bootstrap/dist/css/bootstrap.min.css";
 import ActivityTopper from './ActivityTopper';
 

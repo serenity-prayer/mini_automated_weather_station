@@ -1,8 +1,15 @@
+/**
+ * App Module
+ * @author Steven Kamwaza && Maxwell Mpinganjira
+ * @version 1.0
+ * @description A min auto weather station live dashboard
+ * 
+ */
+
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Iframe from 'react-iframe';
 
-// https://thingspeak.com/channels/1635256/widgets/420235
 function Datacharts(){
     return(
         <div>

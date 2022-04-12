@@ -1,3 +1,5 @@
+
+
 import { render } from "react-dom";
 import {
   BrowserRouter,
@@ -9,6 +11,9 @@ import Activity from "./componets/activitypage/Activity";
 import OpenData from "./componets/openweather/OpenData";
 import History from "./componets/historycharts/History";
 
+/**
+ * @constant {string} rootElement a html tag id to render the jsx code one
+ */
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
